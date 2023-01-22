@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Profile from './pages/profile/Profile';
 import Home from './pages/home/Home';
 import Navigation from './components/navigation/Navigation';
-import {Route, Routes} from 'react-router-dom';
-import logo from "./assets/icons/fantisanti.png"
 import { AuthContext } from './context/AuthContext';
 import SignUp from "./pages/signup/SignUp";
 import SignIn from "./pages/signin/SignIn";
-import EventCreate from "./pages/events/EventCreate";
+
 
 function App() {
 
@@ -16,16 +15,25 @@ function App() {
     const { isAuth } = useContext(AuthContext);
 
     return (
-            <body className={styleState}>
-            <Navigation styleState={styleState} setStyleState={setStyleState} icon={logo} title="Fanti-Santi"/>
-            <Routes>
-                <Route path="/" element={<Home styleState={styleState}/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="/events" element={<EventCreate/>}/>
-                <Route path="/signup" element={<SignUp/>}/>
-                <Route path="/signin" element={<SignIn/>}/>
-            </Routes>
-            </body>
+        <>
+            <Navigation/>
+            <div className="content">
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/profile">
+                        {isAuth ? <Profile /> : <Redirect to="/" />}
+                    </Route>
+                    <Route exact path="/signin">
+                        <SignIn />
+                    </Route>
+                    <Route exact path="/signup">
+                        <SignUp />
+                    </Route>
+                </Switch>
+            </div>
+        </>
     );
 }
 
