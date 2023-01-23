@@ -1,27 +1,69 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
 
 function SignIn() {
-    const { login } = useContext(AuthContext);
 
-    function handleSubmit(e) {
+    const { email, setEmail} = useState("");
+    const { password, setPassword } = useState("");
+    const { login } = useContext(AuthContext);
+    const [error,toggleError] = useState(false);
+
+    async function handleSubmit(e) {
         e.preventDefault();
-        login();
+        toggleError(false);
+
+        try {
+           const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+                email: email,
+                password: password,
+            });
+
+            // log het resultaat in de console
+            console.log(result.data);
+
+            // geef de JWT token aan de login-functie van de context mee
+            login(result.data.accessToken);
+
+        } catch(e) {
+            console.error(e);
+            toggleError(true);
+        }
     }
 
     return (
+
         <>
-            <h1>Inloggen</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
+            <h1>Login</h1>
+            <p>Welcome to the login page</p>
 
             <form onSubmit={handleSubmit}>
-                <p>*invoervelden*</p>
-                <button type="submit">LogIn</button>
-            </form>
+                <label htmlFor="email-field">
+                    Emailadress:
+                    <input
+                        type="email"
+                        id="email-field"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </label>
 
-            <p>You have an accound already? <Link to="/signup">Register</Link> first...</p>
+                <label htmlFor="password-field">
+                    Password:
+                    <input
+                        type="password"
+                        id="password-field"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </label>
+                </form>
+
+            <p>Don't Have an Account?<Link to="/signup">Register</Link>first here..</p>
         </>
     );
 }

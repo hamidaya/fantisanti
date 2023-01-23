@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./EventCreate.css"
 const EventCreate = () => {
     return (
         <div>

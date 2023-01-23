@@ -5,7 +5,7 @@ const SearchBar = () => {
         <div>
             <div className="search-bar">
             <p>Type een stad in:</p>
-            <input type="text"/>
+            <input className="search-bar" type="text"/>
         </div>
             </div>
     );

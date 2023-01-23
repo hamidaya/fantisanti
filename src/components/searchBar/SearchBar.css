@@ -1,5 +1,10 @@
 .search-bar {
     display: flex;
-    justify-content:center;
-    flex-direction: column;
+    width: 700px;
+    color: white;
+
+}
+.div.searchbar {
+    justify-self: center;
+
 }

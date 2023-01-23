@@ -5,8 +5,8 @@ import Profile from './pages/profile/Profile';
 import Home from './pages/home/Home';
 import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
-import SignUp from "./pages/signup/SignUp";
-import SignIn from "./pages/signin/SignIn";
+import SignIn from './pages/signin/SignIn';
+import SignUp from './pages/signup/SignUp';
 
 
 function App() {
@@ -15,12 +15,12 @@ function App() {
     const { isAuth } = useContext(AuthContext);
 
     return (
-        <>
-            <Navigation/>
+        <div className={styleState}>
+            <Navigation setStyleState={setStyleState}/>
             <div className="content">
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                     <Home />
                     </Route>
                     <Route path="/profile">
                         {isAuth ? <Profile /> : <Redirect to="/" />}
@@ -33,7 +33,7 @@ function App() {
                     </Route>
                 </Switch>
             </div>
-        </>
+        </div>
     );
 }
 

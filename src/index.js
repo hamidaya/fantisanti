@@ -5,15 +5,13 @@ import AuthContextProvider from './context/AuthContext';
 import App from './App';
 import './index.css';
 
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
     <React.StrictMode>
         <Router>
          <AuthContextProvider>
             <App/>
         </AuthContextProvider>
         </Router>
-    </React.StrictMode>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
