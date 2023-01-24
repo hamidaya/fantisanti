@@ -63,7 +63,7 @@ function SignIn() {
                 </label>
                 </form>
 
-            <p>Don't Have an Account?<Link to="/signup">Register</Link>first here..</p>
+            <p>Don't Have an Account?<Link to="/signup"> Register </Link> first here..</p>
         </>
     );
 }

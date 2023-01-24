@@ -80,7 +80,7 @@ function SignUp() {
                     </button>
 
             </form>
-    <p>Do you have an account already? <Link to="/signin">Please login</Link>here.</p>
+    <p>Do you have an account already? <Link to="/signin"> Please login </Link>here..</p>
         </>
 );
 }

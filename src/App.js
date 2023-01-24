@@ -7,6 +7,7 @@ import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
+import RegisterEvent from './pages/events/EventCreate';
 
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
                     <Route exact path="/signup">
                         <SignUp />
                     </Route>
+                    <Route exact path="/RegisterEvent">
+                    {isAuth ? <Profile /> : <Redirect to="/signin" />}
+                    </Route>
+
                 </Switch>
             </div>
         </div>

@@ -5,9 +5,12 @@ const SearchBar = () => {
         <div>
             <div className="search-bar">
             <p>Type een stad in:</p>
-            <input className="search-bar" type="text"/>
+             <label search-bar="search-bar">
+             <input className="search-bar" name="name" placeholder="Where are you going?" />
+            </label>
         </div>
             </div>
+
     );
 };
 
