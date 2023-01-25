@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Profile from './pages/profile/Profile';
@@ -15,6 +15,10 @@ function App() {
     const [styleState, setStyleState] = useState('body')
     const { isAuth } = useContext(AuthContext);
 
+    useEffect(() => {
+        setStyleState('body')
+    }, [])
+
     return (
         <div className={styleState}>
             <Navigation setStyleState={setStyleState}/>
@@ -26,16 +30,15 @@ function App() {
                     <Route path="/profile">
                         {isAuth ? <Profile /> : <Redirect to="/" />}
                     </Route>
-                    <Route exact path="/signin">
+                    <Route path="/signin">
                         <SignIn />
                     </Route>
-                    <Route exact path="/signup">
+                    <Route path="/signup">
                         <SignUp />
                     </Route>
-                    <Route exact path="/RegisterEvent">
+                    <Route path="/registerevent">
                     {isAuth ? <Profile /> : <Redirect to="/signin" />}
                     </Route>
-
                 </Switch>
             </div>
         </div>

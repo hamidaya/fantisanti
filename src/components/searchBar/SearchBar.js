@@ -4,8 +4,7 @@ const SearchBar = () => {
     return (
         <div>
             <div className="search-bar">
-            <p>Type een stad in:</p>
-             <label search-bar="search-bar">
+             <label for="search-bar">
              <input className="search-bar" name="name" placeholder="Where are you going?" />
             </label>
         </div>

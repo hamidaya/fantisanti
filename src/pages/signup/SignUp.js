@@ -39,7 +39,8 @@ function SignUp() {
     return (
         <>
         <h1>SignUp</h1>
-            <p>Welcome to the registration page. After this step you will be able to post your festival or party on our website</p>
+            <p>Welcome to the registration page.
+                After this step you will be able to post your festival or party on our website</p>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email-field">
                         Emailadress:
@@ -54,9 +55,9 @@ function SignUp() {
                     <label htmlFor="username-field">
                       Username:
                         <input
-                            type={"username"}
-                            id={"username-field"}
-                            name={"username"}
+                            type="text"
+                            id="username-field"
+                            name="username"
                             value={userName}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -64,22 +65,24 @@ function SignUp() {
                     <label htmlFor="user-password">
                       Password:
                         <input
-                            type={"password"}
-                            id={"password-field"}
-                            name={"password"}
+                            type="password"
+                            id="password-field"
+                            name="password"
                             value={password}
                             onChange={(e) => password(e.target.value)}
                         />
-                    </label>
-                    <button
+                      </label>
+                            {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
+                            <button
                             type="submit"
                             className="form-button"
                             disabled={loading}
-                     >
-                         Register
-                    </button>
+                 >
+                     Register
+        </button>
 
-            </form>
+        </form>
+
     <p>Do you have an account already? <Link to="/signin"> Please login </Link>here..</p>
         </>
 );

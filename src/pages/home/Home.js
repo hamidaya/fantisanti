@@ -5,46 +5,20 @@ import SearchBar from "../../components/searchBar/SearchBar";
 function Home({styleState}) {
     return (
         <main className={styleState}>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis doloribus
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-                facilis iste placeat praesentium sint voluptatem. Architecto at, maiores?
-
-            </p>
+            <div className="home-welcome-container">
+                <p className="home-welcome-text">
+                    Ieder jaar worden er door de stad
+                    evenementen georganiseerd die ons allen weer even een geheel maken.
+                    Events die verspreid door de stad,
+                    in de gezamenlijkheid worden georganiseerd.
+                </p>
+            </div>
             <p className="home-container-sub">
-                ONE place for Parties & Festivals all over the world.
+                ONE place for all Parties & Festivals
+                all over the world.
             </p>
-            <SearchBar />
-         </main>
+            <SearchBar/>
+        </main>
     );
 }
 
