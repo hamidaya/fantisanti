@@ -69,7 +69,7 @@ function SignUp() {
                             id="password-field"
                             name="password"
                             value={password}
-                            onChange={(e) => password(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                       </label>
                             {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
