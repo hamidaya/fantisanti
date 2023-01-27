@@ -5,9 +5,10 @@ import axios from "axios";
 function SignUp() {
 
     // state for event registration
-    const {userName, setUsername} = useState("");
-    const { email, setEmail} = useState("");
-    const { password, setPassword } = useState("");
+    const [userName, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword ] = useState("");
+
 
     // User functionality logging to the GUI
     const [error, toggleError] = useState(false);
@@ -25,6 +26,7 @@ function SignUp() {
                 email: email,
                 password: password,
                 username: userName,
+                role:["user"],
             });
 
             //Redirection to the login page after approved credentials

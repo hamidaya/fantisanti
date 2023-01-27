@@ -8,8 +8,8 @@ function SignIn() {
 
     const { email, setEmail} = useState("");
     const { password, setPassword } = useState("");
-    const { login } = useContext(AuthContext);
     const [error,toggleError] = useState(false);
+    const { login } = useContext(AuthContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -49,7 +49,6 @@ function SignIn() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </label>
-
                 <label htmlFor="password-field">
                     Password:
                     <input
@@ -60,9 +59,14 @@ function SignIn() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
-                </form>
-
-            <p>Don't Have an Account?<Link to="/signup"> Register </Link> first here..</p>
+                 <button
+                    type="submit"
+                    className="form-button"
+                  >
+                    Login
+                </button>
+                <p>Don't Have an Account?<Link to="/signUp"> Register </Link> first here..</p>
+            </form>
 
         </>
     );
