@@ -10,6 +10,7 @@ import SignUp from './pages/signup/SignUp';
 import RegisterEvent from './pages/events/EventCreate';
 
 
+
 function App() {
 
     const [styleState, setStyleState] = useState('body')

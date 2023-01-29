@@ -4,17 +4,20 @@
     flex-wrap: wrap;
     justify-content: center;
 
+
   }
 .home-welcome-container {
     display: flex;
     width: 750px;
     color: white;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-size: 30px;
     margin: auto;
+
 }
 
 .home-welcome-text {
    flex-basis: 500px;
+
 }
