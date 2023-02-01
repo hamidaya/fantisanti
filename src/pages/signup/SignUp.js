@@ -22,13 +22,14 @@ function SignUp() {
         toggleLoading(true);
 
         try {
-            await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+           const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
                 email: email,
                 password: password,
                 username: userName,
                 role:["user"],
-            });
 
+            });
+            console.log(result.data)
             //Redirection to the login page after approved credentials
             history.push('/signin');
         } catch(e) {

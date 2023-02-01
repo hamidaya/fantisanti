@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState,} from 'react';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
@@ -6,8 +6,8 @@ import axios from 'axios';
 
 function SignIn() {
 
-    const { email, setEmail} = useState("");
-    const { password, setPassword } = useState("");
+    const [user, setUser] = useState("");
+    const [ password, setPassword ] = useState("");
     const [error,toggleError] = useState(false);
     const { login } = useContext(AuthContext);
 
@@ -17,7 +17,7 @@ function SignIn() {
 
         try {
            const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
-                email: email,
+                username: user,
                 password: password,
             });
 
@@ -38,14 +38,14 @@ function SignIn() {
             <h1>Login</h1>
             <p>Welcome to the login page</p>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email-field">
-                    Emailadress:
+                <label htmlFor="user-field">
+                    username:
                     <input
-                        type="email"
-                        id="email-field"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        type="text"
+                        id="user-field"
+                        name="user"
+                        value={user}
+                        onChange={(e) => setUser(e.target.value)}
                     />
                 </label>
                 <label htmlFor="password-field">
@@ -61,10 +61,9 @@ function SignIn() {
                  <button
                     type="submit"
                     className="form-button"
-                  >
-                    Login
+                 >                    Login
                 </button>
-                <p>Don't Have an Account?<Link to="/signUp"> Register </Link> first here..</p>
+                <p>Don't Have an Account?<Link to="/SignUp"> Register </Link> first here..</p>
             </form>
 
         </>

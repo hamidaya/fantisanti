@@ -7,7 +7,7 @@ import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
-import RegisterEvent from './pages/events/EventCreate';
+import RegisterEvent from './pages/events/EventsList';
 
 
 

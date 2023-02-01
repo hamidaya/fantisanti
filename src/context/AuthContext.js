@@ -54,10 +54,10 @@ function AuthContextProvider({ children }) {
     }
 
     // Omdat we deze functie in login- en het mounting-effect gebruiken, staat hij hier gedeclareerd!
-    async function fetchUserData(id, token, redirectUrl) {
+    async function fetchUserData(token, redirectUrl) {
         try {
             // haal gebruikersdata op met de token en id van de gebruiker
-            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/${id}`, {
+            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
