@@ -17,7 +17,8 @@ function Navigation({icon, title, setStyleState}) {
                     <h1>{title}</h1>
                 </header>
                 <ul className="ul-container">
-                    <li><NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive}) => isActive ? 'active-link' : 'default-home'}>Home</NavLink></li>
+                   <li><NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive}) => isActive ? 'active-link' : 'default-home'}>Home</NavLink></li>
+                   <li><NavLink onClick={() => setStyleState('body2')} to="/listevents" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>List events</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body2')} to="/registerevent" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Register event</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body2')} to="/signin" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Login</NavLink></li>
                 </ul>

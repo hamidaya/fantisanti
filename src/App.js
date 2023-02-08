@@ -7,7 +7,8 @@ import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
-import RegisterEvent from './pages/events/EventsList';
+import EventsList from './components/eventlist/EventsList';
+import ListEvents from "./pages/events/ListEvents";
 
 
 
@@ -25,7 +26,7 @@ function App() {
             <Navigation setStyleState={setStyleState}/>
             <div className="content">
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path="./">
                      <Home />
                     </Route>
                     <Route path="/profile">
@@ -39,6 +40,9 @@ function App() {
                     </Route>
                     <Route path="/registerevent">
                     {isAuth ? <Profile /> : <Redirect to="/signin" />}
+                    </Route>
+                    <Route exact path="/ListEvents">
+                     <ListEvents />
                     </Route>
                 </Switch>
             </div>
