@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', 'Oxygen',
+  font-family: 'inter','Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,5 +15,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Neucha', 'Times New Roman', cursive;
+  font-family: 'inter','Neucha', 'Times New Roman', cursive;
 }

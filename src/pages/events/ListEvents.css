@@ -1,6 +1,23 @@
- {
+body {
+    color: #7963E0;
+}
+.EventsList-sub-items {
     display: flex;
-    color: deeppink;
+    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: left;
+    color: #C0218A;
+    width: 750px;
+    flex-direction: row;
+}
+
+.EventsList-title-text {
+    justify-content: left;
     display: flex;
-    font-size: 44px;
+    font-size: 14px;
+    padding: 20px;
+    width: 750px;
+    color: #C0218A;
+    padding: 15px;
+
 }

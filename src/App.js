@@ -7,7 +7,6 @@ import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
-import EventsList from './components/eventlist/EventsList';
 import ListEvents from "./pages/events/ListEvents";
 
 
@@ -26,7 +25,7 @@ function App() {
             <Navigation setStyleState={setStyleState}/>
             <div className="content">
                 <Switch>
-                    <Route exact path="./">
+                    <Route exact path="/">
                      <Home />
                     </Route>
                     <Route path="/profile">

@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    margin: 10px 10px;
+    padding: 10px 10px;
+    background-color: #7963E0;
 
 }
 .ul-container{
@@ -16,13 +17,13 @@
     color: white;
     font-size: 25px;
     text-decoration: none;
-}
+    }
 
 
 .default-link {
     color: white;
     font-size: 25px;
     text-decoration: none;
-;
+
 }
 

@@ -1,4 +1,13 @@
-. {
-    color: deeppink;
-    background-color: red;
+.outer-login-container {
+    color: black;
+    font-size: 13px;
+    background-color: white;
+
+}
+.inner-login-container {
+    color: black;
+    background-color: #F8F8F8;
+    flex-basis: 450px;
+    font-size: 14px;
+    padding:75px
 }

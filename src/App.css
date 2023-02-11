@@ -1,6 +1,7 @@
 .body{
-    background: url("./assets/images/partyhome.jpg") top;
+    background: url("assets/images/partyhome1.jpg") top;
     background-size: cover;
     height: 100vh;
-    color:#ffffff;
+    color:#7963E0;
+
 }

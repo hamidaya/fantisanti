@@ -35,6 +35,8 @@ function SignIn() {
     return (
 
         <>
+            <section id="login" className="outer-login-container">
+                <div className="inner-login-container">
             <h1>Login</h1>
             <p>Welcome to the login page</p>
             <form onSubmit={handleSubmit}>
@@ -65,7 +67,8 @@ function SignIn() {
                 </button>
                 <p>Don't Have an Account?<Link to="/SignUp"> Register </Link> first here..</p>
             </form>
-
+                    </div>
+        </section>
         </>
     );
 }

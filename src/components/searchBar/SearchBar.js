@@ -1,17 +1,46 @@
 import React from 'react';
 import "./SearchBar.css"
-const SearchBar = () => {
+import {useState} from "react";
+import {findAllByDisplayValue} from "@testing-library/react";
 
+const data = require("./data.json");
+
+export default function SearchBar(){
+    const [value, setValue] = useState("");
+    const onChange = (event) => {
+        setValue(event.target.value);
+    };
+    const onSearch= (searchTerm) => {
+        //API fetch data here integration later.
+        setValue(searchTerm);
+        console.log("search", searchTerm)
+};
     return (
+        <div className="search-container">
+           <div className="search-inner">
+                <input type="text" value={value} onChange={onChange} />
+               <button onClick={() =>onSearch(value)}> Search </button>
+               </div>
 
-           <div className="search-bar">
-            <label htmlFor="search-bar">
-             <input className="search-bar" placeholder="Where are you going?" />
-            </label>
-             <button type="submit">Search</button>
-              <p/>
-           </div>
+               <div className="dropdown">
 
+                   {data.filter(item => {
+                       const searchTerm = value.toLowerCase();
+                       const city = item.City.toLowerCase();
+
+                       return searchTerm &&  city.includes(searchTerm) &&
+                           city !== searchTerm;
+                        })
+                       .slice(0,8)
+                       .map((item) => (
+                   <div onClick={() => onSearch(item.City)}
+                        className="dropdown-row"
+                        key={item.City}
+                   >
+
+                       {item.City}</div>
+                   ))}
+                </div>
+            </div>
 )
 };
-export default SearchBar;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
-
+import "./SignUp.css"
 function SignUp() {
 
     // state for event registration
@@ -41,6 +41,8 @@ function SignUp() {
     }
     return (
         <>
+            <section id="signup" className="outer-signup-container">
+                <div className="inner-signup-container">
         <h1>SignUp</h1>
             <p>Welcome to the registration page.
                 After this step you will be able to post your festival or party on our website</p>
@@ -85,8 +87,9 @@ function SignUp() {
         </button>
 
         </form>
-
-    <p>Do you have an account already? <Link to="/signin"> Please login </Link>here..</p>
+                </div>
+            </section>
+    <p>Do you have an account already? <Link to="/signin"> Please login </Link>here.</p>
         </>
 );
 }
