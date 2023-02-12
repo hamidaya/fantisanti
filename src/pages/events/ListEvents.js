@@ -5,12 +5,14 @@ function ListEvents({styleState}) {
     return (
 
         <main className={styleState}>
-                <div className="EventsList-sub-items">
-                <p className="EventsList-title-text">
-                <h1>Overview League Europe</h1>
-                </p>
+            <section id="list-events" className="outer-list-events-container">
+                <div className="inner-list-events-container">
+                     <p className="events-List-title-text">
+                         <h1>Overview League Europe</h1>
+                     </p>
                 <EventsList/>
             </div>
+                </section>
              </main>
     );
 }

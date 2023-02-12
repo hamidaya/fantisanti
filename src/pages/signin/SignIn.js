@@ -41,7 +41,7 @@ function SignIn() {
             <p>Welcome to the login page</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="user-field">
-                    username:
+                    Username:
                     <input
                         type="text"
                         id="user-field"

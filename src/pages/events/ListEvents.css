@@ -1,23 +1,18 @@
-body {
-    color: #7963E0;
+.outer-list-events-container {
+    color: black;
+    font-size: 16px;
 }
-.EventsList-sub-items {
-    display: flex;
-    font-size: 14px;
-    flex-wrap: wrap;
-    justify-content: left;
-    color: #C0218A;
-    width: 750px;
-    flex-direction: row;
+.inner-list-events-container {
+    color: #7963E0;
+    background-color: #F8F8F8;
+    flex-basis: 450px;
+    font-size: 16px;
+    padding: 75px;
 }
 
-.EventsList-title-text {
-    justify-content: left;
-    display: flex;
-    font-size: 14px;
-    padding: 20px;
-    width: 750px;
-    color: #C0218A;
-    padding: 15px;
+.inner-list-events-container p {
+    font: 25px Inter;
+    color: white;
+    background-color: #7963E0;
 
 }

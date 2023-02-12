@@ -16,13 +16,12 @@ export default function SearchBar(){
         console.log("search", searchTerm)
 };
     return (
-        <div className="search-container">
-           <div className="search-inner">
-                <input type="text" value={value} onChange={onChange} />
-               <button onClick={() =>onSearch(value)}> Search </button>
-               </div>
-
-               <div className="dropdown">
+        <section id="searchbar" className="outer-searchbar-container">
+                <div className="inner-searchbar-container">
+                    <input type="text" placeholder=" Where are you going? enter your city" value={value} onChange={onChange} />
+                        <button onClick={() =>onSearch(value)}> Search </button>
+                </div>
+                <div className="dropdown">
 
                    {data.filter(item => {
                        const searchTerm = value.toLowerCase();
@@ -41,6 +40,7 @@ export default function SearchBar(){
                        {item.City}</div>
                    ))}
                 </div>
-            </div>
+            </section>
+
 )
 };

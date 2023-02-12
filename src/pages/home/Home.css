@@ -1,23 +1,22 @@
-.home-container-sub {
+.outer-home-welcome-container {
     display: flex;
-    font-size: 64px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-
-  }
-.home-welcome-container {
-    display: flex;
-    width: 750px;
-    color: white;
+    width: auto;
+    color: black;
     justify-content: left;
     align-items: center;
     font-size: 30px;
     margin: auto;
+}
+.inner-home-welcome-container {
+    display: flex;
+    justify-content: center;
 
 }
 
-.home-welcome-text {
-   flex-basis: 500px;
+.inner-home-welcome-container p {
+    display: flex;
+    padding: 10px;
+    color: white;
+    }
 
-}
+
