@@ -1,28 +1,30 @@
 .outer-login-container {
     color: black;
-    font-size: 13px;
+    font-size: 20px;
     background-color: white;
-
 
 }
 .inner-login-container {
     color: black;
     background-color: #F8F8F8;
     flex-basis: 450px;
-    font-size: 14px;
+    font-size: 20px;
     padding: 35px 112px;
     margin: 0px 0px 15px;
+
 
 }
 
 .inner-login-container input {
     display: flex;
-    background-color: #bcaff5;
-    height: 20px;
-    width: 150px;
+    background-color: #bfaddc;
+    height: 25px;
+    width: 250px;
     border-radius: 20px;
     margin: 4px 0px 4px;
-    padding: 5px 50px;
+    padding: 1px 5px;
+    font-size: 16px;
+
 
 }
 
@@ -36,10 +38,12 @@
     border: 2px solid #ff3e92;
     overflow: hidden;
     position: relative;
+    font-size: 20px;
 
 }
 .inner-login-container form p {
     color: black;
     display: flex;
     gap: 5px;
+
 }

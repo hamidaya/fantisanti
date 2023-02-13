@@ -18,7 +18,7 @@ export default function SearchBar(){
     return (
         <section id="searchbar" className="outer-searchbar-container">
                 <div className="inner-searchbar-container">
-                    <input type="text" placeholder=" Where are you going? enter your city" value={value} onChange={onChange} />
+                    <input type="text" placeholder="  Where are you going? enter your city" value={value} onChange={onChange} />
                         <button onClick={() =>onSearch(value)}> Search </button>
                 </div>
                 <div className="dropdown">
@@ -30,7 +30,7 @@ export default function SearchBar(){
                        return searchTerm &&  city.includes(searchTerm) &&
                            city !== searchTerm;
                         })
-                       .slice(0,8)
+                       .slice(0,10)
                        .map((item) => (
                    <div onClick={() => onSearch(item.City)}
                         className="dropdown-row"

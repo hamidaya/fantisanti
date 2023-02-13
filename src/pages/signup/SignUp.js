@@ -43,12 +43,12 @@ function SignUp() {
         <>
             <section id="signup" className="outer-signup-container">
                 <div className="inner-signup-container">
-        <h1>SignUp</h1>
-            <p>Welcome to the registration page.
-                After this step you will be able to post your festival or party on our website</p>
+                 <h1>SignUp</h1>
+                    <p>Welcome to the registration page.
+                    After this step you will be able to register your festival or party on our website.</p>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email-field">
-                        Emailadress:
+                        Emailadress
                         <input
                             type="email"
                             id="email-field"
@@ -58,7 +58,7 @@ function SignUp() {
                         />
                     </label>
                     <label htmlFor="username-field">
-                      Username:
+                      Username
                         <input
                             type="text"
                             id="username-field"
@@ -68,7 +68,7 @@ function SignUp() {
                         />
                     </label>
                     <label htmlFor="user-password">
-                      Password:
+                      Password
                         <input
                             type="password"
                             id="password-field"

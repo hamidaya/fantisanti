@@ -1,12 +1,12 @@
-.outer-home-welcome-container {
-    display: flex;
-    width: auto;
-    color: black;
-    justify-content: left;
-    align-items: center;
-    font-size: 30px;
-    margin: auto;
-}
+/*.outer-home-welcome-container {*/
+/*    display: flex;*/
+/*    width: auto;*/
+/*    color: black;*/
+/*    justify-content: left;*/
+/*    align-items: center;*/
+/*    font-size: 30px;*/
+/*    margin: auto;*/
+/*}*/
 .inner-home-welcome-container {
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     display: flex;
     padding: 10px;
     color: white;
+    top: 100px;
+    font-size: 80px;
+
     }
-
-
-

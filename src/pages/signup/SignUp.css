@@ -9,6 +9,44 @@
     background-color: #F8F8F8;
     flex-basis: 450px;
     font-size: 14px;
-    padding:75px
+    padding: 35px 112px;
+    margin: 0px 0px 15px;
+}
 
+.inner-signup-container p {
+    font-size: 25px;
     }
+
+.inner-signup-container label {
+    font-size: 20px;
+}
+
+.inner-signup-container input {
+    display: flex;
+    background-color: #bcaff5;
+    height: 20px;
+    width: 150px;
+    border-radius: 20px;
+    margin: 4px 0px 4px;
+    padding: 1px 10px;
+
+}
+
+.inner-signup-container button {
+    display: inline-flex;
+    width: fit-content;
+    padding: 5px 25px;
+    color: white;
+    background-color: #ff3e92;
+    border-radius: 30px;
+    border: 2px solid #ff3e92;
+    overflow: hidden;
+    position: relative;
+
+}
+.inner-signup-container form p {
+    color: black;
+    display: flex;
+    gap: 5px;
+
+}

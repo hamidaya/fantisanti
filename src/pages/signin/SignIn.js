@@ -38,7 +38,7 @@ function SignIn() {
             <section id="login" className="outer-login-container">
                 <div className="inner-login-container">
             <h1>Login</h1>
-            <p>Welcome to the login page</p>
+            <p>Welcome to the login page.</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="user-field">
                     Username
