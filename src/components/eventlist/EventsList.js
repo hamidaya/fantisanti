@@ -24,7 +24,7 @@ const EventsList = () => {
             })
 
             console.log(responds.data);
-            setEvents(responds.data)
+            setEvents(responds.data.results)
             console.log(responds.data.events)
 
         } catch (e) {
@@ -41,15 +41,14 @@ const EventsList = () => {
     return (
         <div>
             <ul>
-                {events && events.results.entities.map((test) => {
-                 console.log(test)
+                {events && events.map((test) => {
+                    return( <li>{test.title}</li>
 
-                 return
-                    <li>{test.entities}</li>
-                })}
-        </ul>
+                    )})}
+            </ul>
         </div>);
 
 };
 
 export default EventsList;
+
