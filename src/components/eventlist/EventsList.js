@@ -2,23 +2,31 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {logDOM} from "@testing-library/react";
 
-
+const apiKey = 'FME7MZEqvSTSTA3NrqgUg4V_X9zV2b4JPPIEb2a5';
 const EventsList = () => {
 
-    const [leagues, setLeagues] = useState([])
+    const [events, setEvents] = useState([])
 
     useEffect(() => {
         async function fetchEvents()
             {
-        const URI = 'https://www.thesportsdb.com/api/v1/json/3/'
-        const ENDPOINT = 'all_leagues.php'
+        const URI = ("https://api.predicthq.com/v1/");
+        const ENDPOINT = "events"
 
         try {
-            // haal competities op die met een API.
-            const responds = await axios.get(URI + ENDPOINT);
+            // haal data op die met een API.
+            const responds = await axios.get(URI + ENDPOINT, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${apiKey}`,
+
+                },
+            })
+
             console.log(responds.data);
-            setLeagues(responds.data.leagues)
-            console.log(responds.data.leagues)
+            setEvents(responds.data)
+            console.log(responds.data.events)
+
         } catch (e) {
             console.error(e);
 
@@ -33,13 +41,15 @@ const EventsList = () => {
     return (
         <div>
             <ul>
-                {leagues &&
-                    leagues.map((test) => {
-                        return <li>{test.strLeague}</li>
-                    })}
-            </ul>
-        </div>
-    );
+                {events && events.results.entities.map((test) => {
+                 console.log(test)
+
+                 return
+                    <li>{test.entities}</li>
+                })}
+        </ul>
+        </div>);
+
 };
 
 export default EventsList;

@@ -40,8 +40,8 @@ function App() {
                     <Route path="/registerevent">
                     {isAuth ? <Profile /> : <Redirect to="/signin" />}
                     </Route>
-                    <Route exact path="/ListEvents">
-                     <ListEvents />
+                    <Route path="/ListEvents">
+                        <ListEvents />
                     </Route>
                 </Switch>
             </div>

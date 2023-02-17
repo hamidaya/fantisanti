@@ -3,7 +3,7 @@ import "./SearchBar.css"
 import {useState} from "react";
 import {findAllByDisplayValue} from "@testing-library/react";
 
-const data = require("./data.json");
+// const data = require("./data.json");
 
 export default function SearchBar(){
     const [value, setValue] = useState("");

@@ -7,10 +7,11 @@ function ListEvents({styleState}) {
         <main className={styleState}>
             <section id="list-events" className="outer-list-events-container">
                 <div className="inner-list-events-container">
+                    <h1>Overview festivals Netherlands and Germany</h1>
                      <p className="events-List-title-text">
-                         <h1>Overview League Europe</h1>
-                     </p>
+                      </p>
                 <EventsList/>
+
             </div>
                 </section>
              </main>
