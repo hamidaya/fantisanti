@@ -5,11 +5,11 @@
 }
 
 .inner-signup-container {
-    color: black;
+    color: #561e86;
     background-color: #F8F8F8;
     flex-basis: 450px;
     font-size: 14px;
-    padding: 35px 112px;
+    padding: 50px 112px;
     margin: 0px 0px 15px;
 }
 
@@ -23,12 +23,12 @@
 
 .inner-signup-container input {
     display: flex;
-    background-color: #bcaff5;
-    height: 20px;
-    width: 150px;
+    background-color: #E8F0FE;
+    height: 25px;
+    width: 250px;
     border-radius: 20px;
     margin: 4px 0px 4px;
-    padding: 1px 10px;
+    padding: 1px 5px
 
 }
 
@@ -36,12 +36,14 @@
     display: inline-flex;
     width: fit-content;
     padding: 5px 25px;
+    margin: 5px;
     color: white;
     background-color: #ff3e92;
     border-radius: 30px;
     border: 2px solid #ff3e92;
     overflow: hidden;
     position: relative;
+    font-size: 20px;
 
 }
 .inner-signup-container form p {

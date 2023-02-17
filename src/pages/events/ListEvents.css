@@ -1,12 +1,3 @@
-.outer-list-events-container {
-    color: #ff3e92;
-    display: flex;
-    font-size: 25px;
-    background-color: #ff3e92;
-    flex-direction: column;
-    align-items: center;
-}
-
 .outer-list-events-container h1 {
     color: white;
     display: flex;
@@ -16,6 +7,20 @@
     font-size: 5rem;
     text-shadow: 0 0 20px rgb(0 0 0 / 20%);
     align-items: center;
+}
+
+.outer-list-events-container {
+    display: flex;
+    color: #ff3e92;
+    font-weight: 400;
+    display: flex;
+    text-shadow: 0 0 199px rgb(0 0 0 / 20%);
+    font-size: 2rem;
+    background-color: #ff3e92;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+
 }
 
 .inner-list-events-container div  {

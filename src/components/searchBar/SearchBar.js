@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SearchBar.css"
 import {useState} from "react";
-import {findAllByDisplayValue} from "@testing-library/react";
+
 
 const data = require("./data.json");
 
