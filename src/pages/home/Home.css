@@ -14,10 +14,9 @@
 }
 
 .inner-home-welcome-container p {
-    display: flex;
-    padding: 10px;
-    color: white;
-    top: 100px;
+    color: #FFFFFF;
     font-size: 80px;
+    font-weight: 500;
+    line-height: 1.3em;
 
     }
