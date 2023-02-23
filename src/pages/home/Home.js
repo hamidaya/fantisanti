@@ -13,7 +13,7 @@ function Home({styleState}) {
                 </p>
                 </div>
             <SearchBar/>
-                </section>
+              </section>
             </main>
     );
 }
