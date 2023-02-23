@@ -5,11 +5,11 @@
 
 }
 .inner-login-container {
-    color: black;
+    color: #561e86;
     background-color: #F8F8F8;
     flex-basis: 450px;
     font-size: 20px;
-    padding: 35px 112px;
+    padding: 50px 112px;
     margin: 0px 0px 15px;
 
 
@@ -32,6 +32,7 @@
     display: inline-flex;
     width: fit-content;
     padding: 5px 25px;
+    margin: 5px;
     color: white;
     background-color: #ff3e92;
     border-radius: 30px;
@@ -42,7 +43,7 @@
 
 }
 .inner-login-container form p {
-    color: black;
+    color: #ff3e92;
     display: flex;
     gap: 5px;
 
