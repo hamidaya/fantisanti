@@ -19,7 +19,7 @@ export default function SearchBar(){
     const onSearch= async (searchTerm) => {
         //API fetch data integration.
 
-        const URI = `https://api.predicthq.com/v1/events?category=festivals&country=${value}&phq_attendance.gt=2000`
+        const URI = `https://api.predicthq.com/v1/events?category=festivals&country=${value}&phq_attendance.gt=1000`
 
         const ENDPOINT = "events"
 
@@ -34,11 +34,6 @@ export default function SearchBar(){
             })
 
 
-        // responds.data.results.map((test) => {
-        //     if ( value === test.country) {
-        //         console.log("gelukt")
-        //     }
-        //         })
             console.log(responds)
         } catch (e) {
             console.error(e);
@@ -48,11 +43,13 @@ export default function SearchBar(){
 
         return (
 
+
             <section id="searchbar" className="outer-searchbar-container">
                 <div className="inner-searchbar-container">
                     <input type="text" placeholder="  Where are you going? enter your city" value={value}
                            onChange={onChange}/>
                     <button onClick={() => onSearch(value)}> Search</button>
+                    ( <li>{value}</li>
                 </div>
                 <div className="dropdown">
 

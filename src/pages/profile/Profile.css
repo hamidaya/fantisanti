@@ -1,1 +1,19 @@
-x
+.outer-profile-container {
+    color: #561e86;
+    font-size: 20px;
+    background-color: white;
+    padding: 50px 112px;
+    margin: 0px 0px 15px;
+
+}
+.inner-profile-container {
+    color: #561e86;
+    background-color: #F8F8F8;
+    flex-basis: 450px;
+    font-size: 20px;
+    padding: 50px 112px;
+    margin: 0px 0px 15px;
+
+
+}
+
