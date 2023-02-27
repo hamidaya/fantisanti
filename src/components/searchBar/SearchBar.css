@@ -1,3 +1,6 @@
+body {
+    color: black;
+}
 .outer-searchbar-container {
     display: flex;
     font-family: sans-serif;
