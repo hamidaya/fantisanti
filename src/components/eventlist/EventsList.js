@@ -14,6 +14,7 @@ const EventsList = () => {
         const ENDPOINT = "events"
 
         try {
+
             // haal data op die met een API.
             const responds = await axios.get(URI + ENDPOINT, {
                 headers: {

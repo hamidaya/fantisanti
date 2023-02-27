@@ -32,6 +32,11 @@ export default function SearchBar(){
                 },
             })
 
+
+            console.log(responds.data);
+            setValue(responds.data.results)
+            console.log(responds.data.events)
+
             console.log(responds)
         } catch (e) {
             console.error(e);
@@ -46,7 +51,7 @@ export default function SearchBar(){
                     <input type="text" placeholder="  Where are you going? enter your city" value={value}
                            onChange={onChange}/>
                     <button onClick={() => onSearch(value)}> Search</button>
-                    <li>{value}</li>
+                    <li>{value.title}</li>
                 </div>
                 <div className="dropdown">
 
