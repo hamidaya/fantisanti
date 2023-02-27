@@ -9,8 +9,6 @@ import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
 import ListEvents from "./pages/events/ListEvents";
 
-
-
 function App() {
 
     const [styleState, setStyleState] = useState('body')
