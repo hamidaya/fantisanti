@@ -21,7 +21,7 @@ export default function SearchBar(){
 
         const URI = `https://api.predicthq.com/v1/events?category=festivals&country=${value}&phq_attendance.gt=1000`
 
-        const ENDPOINT = "events"
+        // const ENDPOINT = "events"
 
         try {
             // haal data op die met een API.
@@ -29,13 +29,15 @@ export default function SearchBar(){
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${apiKey}`,
-
                 },
             })
+
+
             console.log(responds.data);
-            setEvents(responds.data.results)
+            setValue(responds.data.results)
             console.log(responds.data.events)
 
+            console.log(responds)
         } catch (e) {
             console.error(e);
 
@@ -44,19 +46,17 @@ export default function SearchBar(){
 
         return (
 
-<>
             <section id="searchbar" className="outer-searchbar-container">
                 <div className="inner-searchbar-container">
                     <input type="text" placeholder="  Where are you going? enter your city" value={value}
                            onChange={onChange}/>
                     <button onClick={() => onSearch(value)}> Search</button>
-                    <li>{value}</li>
-
+                    <li>{value.title}</li>
                 </div>
                 <div className="dropdown">
 
                 </div>
             </section>
-</>
+
         )
     };
