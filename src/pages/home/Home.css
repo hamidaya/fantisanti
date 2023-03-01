@@ -1,12 +1,3 @@
-.outer-home-welcome-container {
-    display: flex;
-    width: auto;
-    color: white;
-    justify-content: left;
-    align-items: center;
-    font-size: 30px;
-    margin: auto;
-}
 .inner-home-welcome-container {
     display: flex;
     justify-content: center;
@@ -19,4 +10,4 @@
     font-weight: 500;
     line-height: 1.3em;
 
-    }
+}

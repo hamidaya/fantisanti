@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import "./EventsList.css"
+import { Children } from 'react';
 
-const apiKey = 'FME7MZEqvSTSTA3NrqgUg4V_X9zV2b4JPPIEb2a5';
+const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
 
 const EventsList = () => {
 
@@ -37,14 +39,31 @@ const EventsList = () => {
     },[])
 
     return (
+
         <div>
-            <ul>
-                {events && events.map((test) => {
-                    return( <li>{test.title}</li>
+            <h1> Overview Festivals </h1>
+                  {events && events.map((test) => {
+                    return(
+                       children: {
+                       test.title
+
+                            )}
+
+
+                      // <div className="event-block" >
+                      //     <span>{test.title}</span>
+                      //     <span>Date:{test.start}</span>
+                      //     <div>{test.timezone}</div>
+                      //
+                      // </div>
+
 
                     )})}
-            </ul>
-        </div>);
+
+
+        </div>
+
+    );
 
 };
 

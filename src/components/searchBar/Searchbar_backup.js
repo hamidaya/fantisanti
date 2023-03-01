@@ -5,7 +5,7 @@ import {findAllByDisplayValue} from "@testing-library/react";
 
 const data = require("./data.json");
 
-export default function SearchBar(){
+export default function SearchBar_bak(){
     const [value, setValue] = useState("");
     const onChange = (event) => {
         setValue(event.target.value);

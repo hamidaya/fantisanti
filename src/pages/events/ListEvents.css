@@ -42,3 +42,12 @@
     line-height: 4.375rem;
     margin-bottom: 30px;
 }
+
+.event-block {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    padding: 10px;
+    flex-direction: row-reverse;
+    align-content: space-between;
+}
