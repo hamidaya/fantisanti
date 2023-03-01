@@ -39,23 +39,17 @@ const EventsList = () => {
     },[])
 
     return (
-
         <div>
             <h1> Overview Festivals </h1>
                   {events && events.map((test) => {
                     return(
-                       children: {
-                       test.title
+                      <div>
+                          <span>{test.title}</span>
+                          <span>Date:{test.start}</span>
+                          <span>{test.timezone.split('/')[1]}</span>
 
-                            )}
+                      </div>
 
-
-                      // <div className="event-block" >
-                      //     <span>{test.title}</span>
-                      //     <span>Date:{test.start}</span>
-                      //     <div>{test.timezone}</div>
-                      //
-                      // </div>
 
 
                     )})}
