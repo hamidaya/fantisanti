@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./SearchBar.css"
 import {useState} from "react";
-import {findAllByDisplayValue} from "@testing-library/react";
+import axios from "axios";
 
-const data = require("./data.json");
+const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
 
 export default function SearchBar_bak(){
     const [value, setValue] = useState("");
@@ -11,10 +11,46 @@ export default function SearchBar_bak(){
         setValue(event.target.value);
     };
     const onSearch= (searchTerm) => {
-        //API fetch data here integration later.
-        setValue(searchTerm);
+
+              useEffect(() => {
+                async function fetchEvents()
+
+                {
+                    const URI = ("https://api.predicthq.com/v1/");
+                    const ENDPOINT = "events"
+
+                    try {
+
+                        // haal data op die met een API.
+                        const responds = await axios.get(URI + ENDPOINT, {
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${apiKey}`,
+
+                            },
+                        })
+                        //API fetch data here integration later.
+                        console.log(responds.data);
+                        setValue(responds.data.results)
+
+                        console.log(responds.data.events)
+
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+                  fetchEvents()
+                  console.log(fetchEvents())
+
+
+
+                  console.log(responds.data);
+                  setValue(responds.data)
+                  console.log(responds.data.results)
+                   setValue(value)
         console.log("search", searchTerm)
-    };
+              });
+
     return (
         <section id="searchbar" className="outer-searchbar-container">
             <div className="inner-searchbar-container">
@@ -43,4 +79,4 @@ export default function SearchBar_bak(){
         </section>
 
     )
-};
+}};

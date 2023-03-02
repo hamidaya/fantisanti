@@ -1,7 +1,9 @@
 import React from 'react';
 import EventsList from "../../components/eventlist/EventsList";
 import "./ListEvents.css"
+
 function ListEvents({styleState}) {
+
     return (
 
         <main className={styleState}>
@@ -9,7 +11,7 @@ function ListEvents({styleState}) {
                 <div className="inner-list-events-container">
                     <h1>Best Festivals around the world</h1>
                      <p className="events-List-title-text">
-                      </p>
+                     </p>
                 <EventsList/>
             </div>
                 </section>

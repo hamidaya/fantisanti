@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import "./SignUp.css"
+
 function SignUp() {
 
     // state for event registration
@@ -89,8 +90,12 @@ function SignUp() {
         </form>
                 </div>
             </section>
-    <p>Do you have an account already? <Link to="/signin"> Please login </Link>here.</p>
+    <p>Do you have an account already?
+        <Link to="/signin"> Please login </Link>here.</p>
         </>
 );
 }
+
 export default SignUp;
+
+
