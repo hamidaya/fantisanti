@@ -1,14 +1,11 @@
-
 import React from 'react';
 import "./SearchBar.css"
 import {useState} from "react";
-import {findAllByDisplayValue, logDOM} from "@testing-library/react";
 import axios from "axios";
 
 
 const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
 
-// const data = require("./data.json");
 
 export default function SearchBar(){
     const [value, setValue] = useState("");
@@ -25,7 +22,7 @@ export default function SearchBar(){
         // const ENDPOINT = "events"
 
         try {
-            // haal data op die met een API.
+            // Fetch data op die met een API.
             const responds = await axios.get(URI, {
                 headers: {
                     "Content-Type": "application/json",
@@ -48,15 +45,13 @@ export default function SearchBar(){
 
             <section id="searchbar" className="outer-searchbar-container">
                 <div className="inner-searchbar-container">
-                    <input type="text" placeholder="  Where are you going? enter your city" value={value}
+                    <input type="text" placeholder="Where are you going? enter your city" value={value}
                            onChange={onChange}/>
                     <button onClick={() => onSearch(value)}> Search</button>
                     <li>{value}</li>
                 </div>
                 <div className="dropdown">
-
                 </div>
             </section>
-
         )
     };

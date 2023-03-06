@@ -1,12 +1,19 @@
-.inner-home-welcome-container {
+.outer-home-welcome-container {
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction:column;
 
 }
 
-.inner-home-welcome-container p {
-    color: #FFFFFF;
+.inner-home-welcome-container h2 {
+    display: flex;
+    flex-direction: column;
+    color: white;
     font-size: 80px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.3em;
+    margin: auto;
+
 }

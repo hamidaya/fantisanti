@@ -12,7 +12,7 @@ const EventsList = () => {
     useEffect(() => {
         async function fetchEvents()
             {
-        const URI = ("https://api.predicthq.com/v1/");
+        const URI = ("https://api.predicthq.com/v1/events/?category=festivals&label=music%2Cfestival&limit=10&offset=10&phq_attendance=1000 ");
         const ENDPOINT = "events"
 
         try {
@@ -39,23 +39,23 @@ const EventsList = () => {
     },[])
 
     return (
-        <article>
-
-            <div className="outer-event-block-container">
+        <section>
+            <div>
                 {events && events.map((test) => {
                     return(
-                      <div className="inner-events-block-container">
-                          <span>Name:{test.title}</span>
-                          <span>Date:{test.start.split('T')[0]}</span>
-                          <span>Location:{test.timezone.split('/')[1]}</span>
+                    <section id="popular-events" className="outer-popular-events-container">
+                        <div className="inner-popular-events-container">
+                            <h2>{test.title}</h2>
+                            <p>{test.description}</p>
+                            <p>{test.timezone.split('/')[1]}</p>
+                            <p>{test.start.split('T')[0]}</p>
+                        </div>
+                    </section>
 
 
-                      </div>
                     )})}
             </div>
-        </article>
-
-    );
+        </section>);
 
 };
 

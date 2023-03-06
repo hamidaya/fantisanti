@@ -1,18 +1,12 @@
 import React from 'react';
 import './Home.css';
-import SearchBar from "../../components/searchBar/SearchBar";
-
 function Home({styleState}) {
     return (
         <main className={styleState}>
             <section id="home" className="outer-home-welcome-container">
               <div className="inner-home-welcome-container">
-                <p className="home-welcome-text">
-                    ONE place for all Parties & Festivals
-                    all over the world.
-                </p>
+                  <h2>ONE palace for all parties & festivals over the world</h2>
                 </div>
-            <SearchBar/>
               </section>
             </main>
     );

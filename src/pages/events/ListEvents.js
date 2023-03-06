@@ -7,15 +7,11 @@ function ListEvents({styleState}) {
     return (
 
         <main className={styleState}>
-            <section id="list-events" className="outer-list-events-container">
-                <div className="inner-list-events-container">
-                    <h1>Best Festivals around the world</h1>
-                     <p className="events-List-title-text">
-                     </p>
-                <EventsList/>
-            </div>
-                </section>
-             </main>
+            <section id="popular-events" className="outer-popular-events-container">
+                <p>Most popular festivals</p>
+            </section>
+            <EventsList/>
+        </main>
     );
 }
 

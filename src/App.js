@@ -7,24 +7,36 @@ import Navigation from './components/navigation/Navigation';
 import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
+import {getEvents} from "./api/axios";
+import SearchBar from './SearchBar'
+import ListPage from "./ListPage";
 import ListEvents from "./pages/events/ListEvents";
-
 function App() {
 
+    const [events, setEvents] = useState([])
+    const [searchResults, setSearchResults] = useState([])
     const [styleState, setStyleState] = useState('body')
     const { isAuth } = useContext(AuthContext);
 
     useEffect(() => {
-        setStyleState('body')
+        getEvents().then(json => {
+            setEvents(json)
+            setSearchResults(json)
+            setStyleState('body')
+        })
     }, [])
 
     return (
-        <div className={styleState}>
+
+        <>
+             <div className={styleState}>
             <Navigation setStyleState={setStyleState}/>
             <div className="content">
                 <Switch>
                     <Route exact path="/">
                      <Home />
+                       <SearchBar events={events} setSearchResults={setSearchResults} />
+                       <ListPage searchResults={searchResults} />
                     </Route>
                     <Route path="/profile">
                         {isAuth ? <Profile /> : <Redirect to="/" />}
@@ -42,9 +54,11 @@ function App() {
                         <ListEvents />
                     </Route>
                 </Switch>
+
             </div>
         </div>
-    );
+</>
+ );
 }
 
 export default App;

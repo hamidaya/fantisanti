@@ -1,14 +1,4 @@
-.outer-popular-events-container p {
-    display: flex;
-    font-size: 5rem;
-    color: white;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-.inner-popular-events-container {
+.inner-search-events-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +11,7 @@
     margin: 0 auto 15px;
 }
 
-.inner-popular-events-container h2 {
+.inner-search-events-container h2 {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -36,12 +26,12 @@
 
 }
 
-.inner-popular-events-container p {
+.inner-search-events-container p {
     display: flex;
     flex-direction: column;
     font-size: 1.5625rem;
     line-height: 1.25rem;
     align-items: center;
     color: #ff3e92;
-
+    margin: 0 auto 15px;
 }

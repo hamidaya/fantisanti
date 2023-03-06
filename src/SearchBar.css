@@ -3,21 +3,22 @@
     font-family: sans-serif;
     text-align: center;
     align-items: center;
-    padding:170px;
     font-size: 16px;
     flex-direction: column;
+    align-content: space-between;
+
 
 }
 .inner-searchbar-container {
     display: flex;
     color: white;
-    width: 100px;
     padding: 25px 150px;
     font-size: 25px;
     margin: 100px;
     flex-direction: column;
     align-items: center;
 }
+
 
 .inner-searchbar-container input {
     display: flex;
@@ -31,46 +32,19 @@
 }
 
 .inner-searchbar-container button {
-    display: inline-flex;
+    display: flex;
     color: white;
     background-color: #ff3e92;
     border-radius: 30px;
     border: 10px solid #ff3e92;
     overflow: hidden;
     position: relative;
-    padding: 10px 20px;
+    padding: 11px 33px;
     bottom: 57px;
     left: 335px;
 
-
 }
-
-.dropdown{
-    background-color: white;
-    width: 700px;
-    display: flex;
-    flex-direction: column;
-    border: 30px solid white;
-    border-radius: 25px;
-    justify-content: center;
-    position: absolute;
-    top: 345px;
-  }
 
 .dropdown:empty {
     border: white;
-}
-
-#searchbar {
-    position: relative;
-
-}
-.dropdown-row {
-    display: flex;
-    padding: 2px;
-    cursor: pointer;
-    justify-content: left;
-    justify-self: center;
-    color: black;
-
 }
