@@ -1,2 +1,0 @@
-# fantisanti
-College opdracht

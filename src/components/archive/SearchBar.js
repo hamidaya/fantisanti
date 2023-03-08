@@ -17,7 +17,7 @@ export default function SearchBar(){
         //API fetch data integration.
 
         const URI = `https://api.predicthq.com/v1/events/?category=festivals&country=${value}&phq_attendance.gt=1000`
-                     // https://api.predicthq.com/v1/events/?category=festivals&country=NL%2CDE&limit=10&offset=10&phq_attendance.gt=2000
+
 
         // const ENDPOINT = "events"
 

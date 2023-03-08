@@ -10,6 +10,7 @@ function Navigation({icon, title, setStyleState}) {
     const { isAuth, logout } = useContext(AuthContext);
 
     return (
+
         <nav>
             <div className="nav-container">
                 <header className="title-container">

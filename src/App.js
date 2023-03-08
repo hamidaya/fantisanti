@@ -8,8 +8,8 @@ import { AuthContext } from './context/AuthContext';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signup/SignUp';
 import {getEvents} from "./api/axios";
-import SearchBar from './SearchBar'
-import ListPage from "./ListPage";
+import SearchBar from './components/searchBar/SearchBar'
+import ListPage from "./components/eventlist/ListPage";
 import ListEvents from "./pages/events/ListEvents";
 function App() {
 

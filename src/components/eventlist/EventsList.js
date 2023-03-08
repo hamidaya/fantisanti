@@ -41,14 +41,14 @@ const EventsList = () => {
     return (
         <section>
             <div>
-                {events && events.map((test) => {
+                {events && events.map((event) => {
                     return(
                     <section id="popular-events" className="outer-popular-events-container">
                         <div className="inner-popular-events-container">
-                            <h2>{test.title}</h2>
-                            <p>{test.description}</p>
-                            <p>{test.timezone.split('/')[1]}</p>
-                            <p>{test.start.split('T')[0]}</p>
+                            <h2>{event.title}</h2>
+                            <p>{event.description}</p>
+                            <p>{event.timezone.split('/')[1]}</p>
+                            <p>{event.start.split('T')[0]}</p>
                         </div>
                     </section>
 

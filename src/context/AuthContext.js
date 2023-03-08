@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export const AuthContext = createContext({});
 
@@ -9,7 +10,7 @@ function AuthContextProvider({ children }) {
         isAuth: false,
         user: null,
         status: 'pending',
-    });
+     });
     const history = useHistory();
 
     // MOUNTING EFFECT
@@ -19,7 +20,8 @@ function AuthContextProvider({ children }) {
 
         // als er WEL een token is, haal dan opnieuw de gebruikersdata op
         if (token) {
-            fetchUserData(token);
+            const decoded = jwt_decode(token);
+            fetchUserData(decoded.sub, token);
         } else {
             // als er GEEN token is doen we niks, en zetten we de status op 'done'
             toggleIsAuth({
@@ -34,9 +36,9 @@ function AuthContextProvider({ children }) {
         // zet de token in de Local Storage
         localStorage.setItem('token', JWT);
         // decode de token zodat we de ID van de gebruiker hebben en data kunnen ophalen voor de context
-
+        const decoded = jwt_decode(JWT)
         // geef de ID, token en redirect-link mee aan de fetchUserData functie (staat hieronder)
-        fetchUserData( JWT, '/profile');
+        fetchUserData(decoded.sub, JWT, '/profile');
         // link de gebruiker door naar de profielpagina
         // history.push('/profile');
     }
