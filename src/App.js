@@ -11,6 +11,8 @@ import {getEvents} from "./api/axios";
 import SearchBar from './components/searchBar/SearchBar'
 import ListPage from "./components/eventlist/ListPage";
 import ListEvents from "./pages/events/ListEvents";
+
+
 function App() {
 
     const [events, setEvents] = useState([])

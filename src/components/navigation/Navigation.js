@@ -6,12 +6,22 @@ import { NavLink } from 'react-router-dom';
 
 
 function Navigation({icon, title, setStyleState}) {
+
     const history = useHistory();
     const { isAuth, logout } = useContext(AuthContext);
 
     return (
-
         <nav>
+
+            {isAuth ?
+                <button
+                    type="button"
+                    onClick={logout}
+                >
+                    Log uit
+                </button>
+                :
+
             <div className="nav-container">
                 <header className="title-container">
                 <img src={icon} alt={title} />
@@ -24,7 +34,7 @@ function Navigation({icon, title, setStyleState}) {
                    <li><NavLink onClick={() => setStyleState('body')} to="/signin" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Login</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body')} to="/signout" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Loguit</NavLink></li>
                 </ul>
-            </div>
+            </div> }
         </nav>
     );
 }
