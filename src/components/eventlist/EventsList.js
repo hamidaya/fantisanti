@@ -3,8 +3,10 @@ import axios from "axios";
 import "./EventsList.css"
 import { Children } from 'react';
 
+//Doe een aparte call naar de events die populair zijn. Dit zijn festivals met meer dan 10.000 bezoekers.
 const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
 
+//Maak een functie aan die eventlijst uit de endpoint terug geeft en sla deze op in de data object op.
 const EventsList = () => {
 
     const [events, setEvents] = useState([])
@@ -38,6 +40,7 @@ const EventsList = () => {
         console.log(fetchEvents())
     },[])
 
+    //render uitgefilterde data terug in op een pagina. Ook hier worden de split van de slash en de UTC datum verwijderd.
     return (
         <section>
             <div>
