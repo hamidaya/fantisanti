@@ -5,7 +5,7 @@ import {api} from "../../api/axios";
 import axios from "axios";
 import {unmountComponentAtNode} from "react-dom";
 import {useEffect, useState} from "react";
-const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
+const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
 const SearchBar = ({ events, setSearchResults }) => {
     const [countryId, setCountryId] = useState("")
     const [state, setState] = useState("")
@@ -50,15 +50,7 @@ const SearchBar = ({ events, setSearchResults }) => {
 
     },[countryId] )
 
-    //    const handleSearchChange = (e) => {
-    //     if (!e.target.value) return setSearchResults(events)
-    //
-    //     const resultsArray = events.filter(event => event.title.includes(e.target.value) || event.description.includes(e.target.value))
-    //
-    //     setSearchResults(resultsArray)
-    // }
-
-    return (
+     return (
         <header>
             <form id="searchbar" className="outer-searchbar-container" onSubmit={handleSubmit}>
                 <div className="inner-searchbar-container">

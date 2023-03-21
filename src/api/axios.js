@@ -1,5 +1,5 @@
 import axios from "axios"
-const apiKey = '4AGbP7E-4ASo0-VDfkC26YLbYr7lh1BWI-Ok4A_F';
+const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
 
 //Doe een API call naar de backend van Predict (data).
 export const api = axios.create({
