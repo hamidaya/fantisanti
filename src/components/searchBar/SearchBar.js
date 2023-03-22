@@ -1,17 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons"
 import "./SearchBar.css"
 import {api, getEvents} from "../../api/axios";
 import axios from "axios";
 import {unmountComponentAtNode} from "react-dom";
 import React, {useEffect, useState} from "react";
+
 const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
-const SearchBar = ({ events, setSearchResults }) => {
+const SearchBar = ({events, setSearchResults}) => {
     const [countryId, setCountryId] = useState("")
     const [event, setEvent] = useState("")
     const [date, setDate] = useState("")
+    const [adress, setAdress] = useState("")
     const [location, setLocation] = useState("")
     const [state, setState] = useState("")
+    const [test, setTest] = useState([])
     // const handleSubmit = (e) => e.preventDefault()
     const handleSubmit = async (e) => {
 
@@ -26,37 +29,29 @@ const SearchBar = ({ events, setSearchResults }) => {
             console.log("Id", response.data.results[0])
             setCountryId(response.data.results[0].id)
 
+        } catch (e) {
+            console.error(e)
+        }
 
-
-
-}
-
-          catch (e) {
-              console.error(e)
-          }
-
-          }
+    }
     useEffect(() => {
 
         const getEvents = async () => {
 
             try {
-                const response = await axios.get(`https://api.predicthq.com/v1/events/?place.scope=${countryId}&active.gte=2023-03-01&active.lte=2023-03-31&category=festivals&sort=rank`, {
+                const response = await axios.get(`https://api.predicthq.com/v1/events/?place.scope=${countryId}&active.gte=2023-03-22&active.lte=2023-12-31&category=festivals&sort=rank`, {
                     headers: {
                         "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`,
 
                     },
                 })
                 console.log("event", response.data)
+                setTest(response.data.results)
                 setEvent(response.data.results[0].title)
                 setDate(response.data.results[0].start.split("T")[0])
-                setLocation(response.data.results[0].entities[0].filter.formatted_address)
-
-
-
-            }
-
-            catch (e) {
+                setAdress(response.data.results[0].entities[0].formatted_address)
+                setLocation(response.data.results[0].entities[0].name)
+            } catch (e) {
                 console.error(e)
             }
 
@@ -66,39 +61,64 @@ const SearchBar = ({ events, setSearchResults }) => {
         getEvents()
 
 
-    },[countryId] )
+    }, [countryId])
 
-     return (
+    return (
 
         <header>
             <form id="searchbar" className="outer-searchbar-container" onSubmit={handleSubmit}>
                 <div className="inner-searchbar-container">
-                <input
-                    className="search__input"
-                    type="text"
-                    placeholder="Where are you going? "
-                    id="search"
-                    value={state}
-                    onChange={(e) => setState(e.target.value)}
+                    <input
+                        className="search__input"
+                        type="text"
+                        placeholder="Where are you going? "
+                        id="search"
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
 
-                />
-                <button className="search__button">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
+                    />
+                    <button className="search__button">
+                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                    </button>
 
-                    <section id="search-events" className="outer-searchbar-container-container">
-                        <div className="inner-search-events-container">
-                            <h1>Festival name:{event}</h1>
-                            <p>Start date:{date}</p>
-                            <p>CountryID:{countryId}</p>
-                        </div>
-                    </section>
+                    {test &&
+                        test.map((hoi) => {
+                            console.log('test', test)
+                            return (
+                                <>
+                                    <section id="search-events" className="outer-searchbar-container-container">
+                                        <div className="inner-search-events-container">
+                                            <h1>{hoi.title}</h1>
+                                            <p>{hoi.start.split("T")[0]}</p> - <p>{hoi.end.split("T")[0]}</p>
+                                            {/*{hoi.entities[0].formatted_address &&*/}
+                                            {/*    <>*/}
+                                            {/*<p>{hoi.entities[0].formatted_address}</p>*/}
+                                            {/*<p>{hoi.entities[0].name}</p>*/}
+                                            {/*    </>*/}
+                                            {/*}*/}
+                                        </div>
+                                    </section>
+                                        </>
+                                        )
+                                        })}
 
 
-                    </div>
-            </form>
-      </header>
+
+
+            {/*<section id="search-events" className="outer-searchbar-container-container">*/}
+            {/*    <div className="inner-search-events-container">*/}
+            {/*        <h1>{event}</h1>*/}
+            {/*        <p>{date}</p>*/}
+            {/*        <p>{adress}</p>*/}
+            {/*        <p>{location}</p>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
+
+
+        </div>
+</form>
+</header>
 
 )
 }
-export default SearchBar
+    export default SearchBar

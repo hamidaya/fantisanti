@@ -36,9 +36,9 @@ function AuthContextProvider({ children }) {
         // zet de token in de Local Storage
         localStorage.setItem('token', JWT);
         // decode de token zodat we de ID van de gebruiker hebben en data kunnen ophalen voor de context
-        const decoded = jwt_decode(JWT)
+        // const decoded = jwt_decode(JWT)
         // geef de ID, token en redirect-link mee aan de fetchUserData functie (staat hieronder)
-        fetchUserData(decoded.sub, JWT, '/profile');
+        fetchUserData( JWT, '/profile');
         // link de gebruiker door naar de profielpagina
         // history.push('/profile');
     }
@@ -63,7 +63,6 @@ function AuthContextProvider({ children }) {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
-
                 },
             });
 

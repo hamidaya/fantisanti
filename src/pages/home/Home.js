@@ -5,7 +5,7 @@ function Home({styleState}) {
         <main className={styleState}>
             <section id="home" className="outer-home-welcome-container">
               <div className="inner-home-welcome-container">
-                  <h2>ONE palace for all parties & festivals over the world</h2>
+                  <h2>ONE place for all parties & festivals over the world</h2>
                 </div>
               </section>
             </main>

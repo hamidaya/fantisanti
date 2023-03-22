@@ -6,6 +6,12 @@
     background-color: #ff3e92;
 
 }
+
+.nav-container button {
+
+    background-color: #ff3e92;
+
+}
 .ul-container{
     display: flex;
     justify-content: space-around;
@@ -13,6 +19,8 @@
     flex-basis: 800px;
 
 }
+
+
 .default-home {
     color: white;
     font-size: 25px;

@@ -12,16 +12,6 @@ function Navigation({icon, title, setStyleState}) {
 
     return (
         <nav>
-
-            {isAuth ?
-                <button
-                    type="button"
-                    onClick={logout}
-                >
-                    Log uit
-                </button>
-                :
-
             <div className="nav-container">
                 <header className="title-container">
                 <img src={icon} alt={title} />
@@ -31,10 +21,20 @@ function Navigation({icon, title, setStyleState}) {
                    <li><NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive}) => isActive ? 'active-link' : 'default-home'}>Home</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body')} to="/listevents" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Popular events</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body')} to="/registerevent" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Register event</NavLink></li>
+                    {isAuth ?
+                        <button
+                            type="submit"
+                            onClick={logout}
+                        >
+                            Log uit
+                        </button>
+                        :
+                        <>
                    <li><NavLink onClick={() => setStyleState('body')} to="/signin" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Login</NavLink></li>
-                   <li><NavLink onClick={() => setStyleState('body')} to="/signout" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Loguit</NavLink></li>
+                   {/*<li><NavLink onClick={() => setStyleState('body')} to="/signout" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Loguit</NavLink></li>*/}
+                        </> }
                 </ul>
-            </div> }
+            </div>
         </nav>
     );
 }

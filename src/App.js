@@ -39,7 +39,6 @@ function App() {
                     <Route exact path="/">
                      <Home />
                        <SearchBar data={events} setSearchResults={setSearchResults} />
-                        getEvent
 
                     </Route>
                     <Route path="/profile">
