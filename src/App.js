@@ -11,6 +11,7 @@ import {getEvents} from "./api/axios";
 import SearchBar from './components/searchBar/SearchBar'
 import ListPage from "./components/eventlist/ListPage";
 import ListEvents from "./pages/events/ListEvents";
+import searchBar from "./components/searchBar/SearchBar";
 
 
 function App() {
@@ -37,8 +38,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                      <Home />
-                       <SearchBar events={events} setSearchResults={setSearchResults} />
-                       <ListPage searchResults={searchResults} />
+                       <SearchBar data={events} setSearchResults={setSearchResults} />
+                        getEvent
+
                     </Route>
                     <Route path="/profile">
                         {isAuth ? <Profile /> : <Redirect to="/" />}
