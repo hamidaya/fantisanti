@@ -86,12 +86,12 @@ function SignUp() {
                  >
                      Register
         </button>
-
+                    <p>Do you have an account already?
+                        <Link to="/signin"> Please login </Link>here.</p>
         </form>
                 </div>
             </section>
-    <p>Do you have an account already?
-        <Link to="/signin"> Please login </Link>here.</p>
+
         </>
 );
 }

@@ -39,7 +39,7 @@ const SearchBar = ({events, setSearchResults}) => {
         const getEvents = async () => {
 
             try {
-                const response = await axios.get(`https://api.predicthq.com/v1/events/?place.scope=${countryId}&active.gte=2023-03-22&active.lte=2023-12-31&category=festivals&sort=rank`, {
+                const response = await axios.get(`https://api.predicthq.com/v1/events/?place.scope=${countryId}&active.gte=2023-03-22&active.lte=2026-12-31&category=festivals&sort=rank`, {
                     headers: {
                         "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`,
 
@@ -49,7 +49,7 @@ const SearchBar = ({events, setSearchResults}) => {
                 setTest(response.data.results)
                 setEvent(response.data.results[0].title)
                 setDate(response.data.results[0].start.split("T")[0])
-                setAdress(response.data.results[0].entities[0].formatted_address)
+                setAdress(response.data.results[0].entities[0])
                 setLocation(response.data.results[0].entities[0].name)
             } catch (e) {
                 console.error(e)
@@ -90,7 +90,8 @@ const SearchBar = ({events, setSearchResults}) => {
                                         <div className="inner-search-events-container">
                                             <h1>{hoi.title}</h1>
                                             <p>{hoi.start.split("T")[0]}</p> - <p>{hoi.end.split("T")[0]}</p>
-                                            {/*{hoi.entities[0].formatted_address &&*/}
+                                            <p>{hoi.entities[0] ? hoi.entities[0].formatted_address : ""}</p>
+                                            {/*<p>{HoiAdress ? <p>{entities[0].formatted_address}</p> : ''}*/}
                                             {/*    <>*/}
                                             {/*<p>{hoi.entities[0].formatted_address}</p>*/}
                                             {/*<p>{hoi.entities[0].name}</p>*/}

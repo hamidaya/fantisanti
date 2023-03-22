@@ -23,7 +23,7 @@ function Navigation({icon, title, setStyleState}) {
                    <li><NavLink onClick={() => setStyleState('body')} to="/registerevent" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Register event</NavLink></li>
                     {isAuth ?
                         <button
-                            type="submit"
+                            type="button"
                             onClick={logout}
                         >
                             Log uit

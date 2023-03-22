@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid rgba(1, 0, 0, .3);
@@ -29,8 +29,8 @@
 .inner-search-events-container p {
     display: flex;
     flex-direction: column;
-    font-size: 1.9625rem;
-    line-height: 2.35rem;
+    font-size: 1.5625rem;
+    line-height: 1.25rem;
     align-items: center;
     color: #ff3e92;
     margin: 0 auto 15px;
