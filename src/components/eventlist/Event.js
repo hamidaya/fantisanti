@@ -11,6 +11,7 @@ const event = ({ event }) => {
                 <p>{event.description}</p>
                 <p>{event.timezone.split('/')[1]}</p>
                 <p>Date:{event.start.split('T')[0]}</p>
+                <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
             </div>
         </section>
     )

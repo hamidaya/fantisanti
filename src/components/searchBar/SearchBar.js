@@ -86,12 +86,11 @@ const SearchBar = ({events, setSearchResults}) => {
                             console.log('test', test)
                             return (
                                 <>
-                                    <section id="search-events" className="outer-searchbar-container-container">
-                                        <div className="inner-search-events-container">
-                                            <h1>{hoi.title}</h1>
+                                    <section id="search-events" className="outer-events-container">
+                                        <div className="inner-events-container">
+                                            <h2>{hoi.title}</h2>
                                             <p>{hoi.start.split("T")[0]}</p> - <p>{hoi.end.split("T")[0]}</p>
                                             <p>{hoi.entities[0] ? hoi.entities[0].formatted_address : ""}</p>
-                                            {/*<p>{HoiAdress ? <p>{entities[0].formatted_address}</p> : ''}*/}
                                             {/*    <>*/}
                                             {/*<p>{hoi.entities[0].formatted_address}</p>*/}
                                             {/*<p>{hoi.entities[0].name}</p>*/}

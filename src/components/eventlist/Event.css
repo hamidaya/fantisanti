@@ -1,9 +1,9 @@
-.inner-search-events-container {
+.inner-search-popular-events-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    width: 100%;
+    width: 750px;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid rgba(1, 0, 0, .3);
@@ -11,7 +11,7 @@
     margin: 0 auto 15px;
 }
 
-.inner-search-events-container h2 {
+.inner-search-popular-events-container h2 {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -26,7 +26,7 @@
 
 }
 
-.inner-search-events-container p {
+.inner-search-popular-events-container p {
     display: flex;
     flex-direction: column;
     font-size: 1.5625rem;
