@@ -1,6 +1,6 @@
 .outer-popular-events-container p {
     display: flex;
-    font-size: 5rem;
+    font-size: 7rem;
     color: white;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
     padding: 10px;
     border-radius: 20px;
     border: 1px solid rgba(10, 0, 0, 0);
-    background-color: #36e0d9;
+    background-color: #faf380;
     margin: 0 auto 15px;
 }
 

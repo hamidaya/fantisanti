@@ -14,7 +14,7 @@ const EventsList = () => {
     useEffect(() => {
         async function fetchEvents()
             {
-        const URI = ("https://api.predicthq.com/v1/events/?category=festivals&label=music%2Cfestival&limit=10&offset=10&phq_attendance=1000 ");
+        const URI = ("https://api.predicthq.com/v1/events/?category=festivals&label=music%2Cfestival&limit=100&offset=100&phq_attendance=10000 ");
         const ENDPOINT = "events"
 
         try {
@@ -53,6 +53,7 @@ const EventsList = () => {
                             <p>{event.timezone.split('/')[1]}</p>
                             <p>{event.start.split('T')[0]}</p>
                             <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
+                            <p>{event.entities[0] ? event.entities[0].description : ""}</p>
                         </div>
                     </section>
 

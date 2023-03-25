@@ -1,4 +1,5 @@
 import "./Event.css"
+import React from "react";
 
 //Maak een functie event aan die we over hele project kunnen hergebruiken met een filter
 //uit een object in de array. Split vervolgens de slash / bij de timezone.
@@ -12,6 +13,8 @@ const event = ({ event }) => {
                 <p>{event.timezone.split('/')[1]}</p>
                 <p>Date:{event.start.split('T')[0]}</p>
                 <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
+                <p>{event.entities[0] ? event.entities[0].description : ""}</p>
+
             </div>
         </section>
     )

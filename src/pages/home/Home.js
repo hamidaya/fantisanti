@@ -6,7 +6,8 @@ function Home({styleState}) {
             <section id="home" className="outer-home-welcome-container">
               <div className="inner-home-welcome-container">
                   <h2>ONE place for all parties & festivals over the world</h2>
-                </div>
+                  <h1>Where is my next party? </h1>
+                   </div>
               </section>
             </main>
     );

@@ -5,6 +5,7 @@ import {api, getEvents} from "../../api/axios";
 import axios from "axios";
 import {unmountComponentAtNode} from "react-dom";
 import React, {useEffect, useState} from "react";
+import {NavLink} from "react-router-dom";
 
 const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
 const SearchBar = ({events, setSearchResults}) => {
@@ -39,7 +40,7 @@ const SearchBar = ({events, setSearchResults}) => {
         const getEvents = async () => {
 
             try {
-                const response = await axios.get(`https://api.predicthq.com/v1/events/?place.scope=${countryId}&active.gte=2023-03-22&active.lte=2026-12-31&category=festivals&sort=rank`, {
+                const response = await axios.get(`https://api.predicthq.com/v1/events/?limit=550&sort=start&place.scope=${countryId}&active.gte=2023-03-22&active.lte=2029-12-31&category=festivals`, {
                     headers: {
                         "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`,
 
@@ -71,7 +72,7 @@ const SearchBar = ({events, setSearchResults}) => {
                     <input
                         className="search__input"
                         type="text"
-                        placeholder="Where are you going? "
+                        placeholder="Where are you going? enter city or country name "
                         id="search"
                         value={state}
                         onChange={(e) => setState(e.target.value)}
@@ -91,11 +92,14 @@ const SearchBar = ({events, setSearchResults}) => {
                                             <h2>{hoi.title}</h2>
                                             <p>{hoi.start.split("T")[0]}</p> - <p>{hoi.end.split("T")[0]}</p>
                                             <p>{hoi.entities[0] ? hoi.entities[0].formatted_address : ""}</p>
+                                            <p>{hoi.entities[0] ? hoi.entities[0].description : ""}</p>
                                             {/*    <>*/}
                                             {/*<p>{hoi.entities[0].formatted_address}</p>*/}
                                             {/*<p>{hoi.entities[0].name}</p>*/}
                                             {/*    </>*/}
                                             {/*}*/}
+
+
                                         </div>
                                     </section>
                                         </>

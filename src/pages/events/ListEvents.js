@@ -8,7 +8,7 @@ function ListEvents({styleState}) {
 
         <main className={styleState}>
             <section id="popular-events" className="outer-popular-events-container">
-                <p>Most popular festivals</p>
+                <p>Most popular events</p>
             </section>
             <EventsList/>
         </main>
