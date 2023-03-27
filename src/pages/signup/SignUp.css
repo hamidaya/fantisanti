@@ -1,10 +1,10 @@
-.outer-signup-container {
+.outer-registerEvent-container {
     color: black;
     font-size: 13px;
     background-color: white;
 }
 
-.inner-signup-container {
+.inner-registerEvent-container {
     color: #561e86;
     background-color: #F8F8F8;
     flex-basis: 450px;
@@ -13,15 +13,15 @@
     margin: 0px 0px 15px;
 }
 
-.inner-signup-container p {
+.inner-registerEvent-container p {
     font-size: 25px;
     }
 
-.inner-signup-container label {
+.inner-registerEvent-container label {
     font-size: 20px;
 }
 
-.inner-signup-container input {
+.inner-registerEvent-container input {
     display: flex;
     background-color: #E8F0FE;
     height: 25px;
@@ -32,7 +32,7 @@
 
 }
 
-.inner-signup-container button {
+.inner-registerEvent-container button {
     display: inline-flex;
     width: fit-content;
     padding: 5px 25px;
@@ -46,7 +46,7 @@
     font-size: 20px;
 
 }
-.inner-signup-container form p {
+.inner-registerEvent-container form p {
     color: black;
     display: flex;
     gap: 5px;

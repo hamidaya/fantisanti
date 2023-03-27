@@ -1,9 +1,7 @@
 import "./Event.css"
 import React from "react";
 
-//Maak een functie event aan die we over hele project kunnen hergebruiken met een filter
-//uit een object in de array. Split vervolgens de slash / bij de timezone.
-// Split de UTC datum en geeft alleende eerst deel van de datum terug.
+//Maak een functie event aan die we over hele project kunnen hergebruiken.
 const event = ({ event }) => {
     return (
         <section id="search-events" className="outer-search-events-container">

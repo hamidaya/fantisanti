@@ -11,7 +11,6 @@ import {getEvents} from "./api/axios";
 import SearchBar from './components/searchBar/SearchBar'
 import ListPage from "./components/eventlist/ListPage";
 import ListEvents from "./pages/events/ListEvents";
-import searchBar from "./components/searchBar/SearchBar";
 import RegisterEvent from "./pages/events/RegisterEvent";
 
 
@@ -51,13 +50,16 @@ function App() {
                     <Route path="/signup">
                         <SignUp />
                     </Route>
-                    <Route path="/registerevent">
+                    <Route path="/RegisterEvent">
+                        <RegisterEvent />
+                    </Route>
+                    <Route path="/signin">
                     {isAuth ? <Profile /> : <Redirect to="/signin" /> }
-                    {isAuth ? <Profile /> : <Redirect to="/registerEvent" /> }
                     </Route>
                     <Route path="/ListEvents">
                         <ListEvents />
                     </Route>
+
                 </Switch>
 
             </div>
