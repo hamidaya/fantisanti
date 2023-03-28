@@ -6,11 +6,13 @@ function RegisterEvent() {
 
 
     const [attendees, setAttendees] = useState(0);
+    const [location, setLocation] = useState('');
     const [zipcode, setZipcode] = useState('');
-    // const [deliveryFrequency, toggleDeliveryFrequency] = useState('week');
-    // const [deliveryTimeslot, toggleDeliveryTimeslot] = useState('daytime');
+    const [email, setEmail] = useState('');
+    const [eventName, setEventName] = useState('');
     const [remark, setRemark] = useState('');
     const [agreeTerms, toggleAgreeTerms] = useState(false);
+
 
 
     // Organization owner:
@@ -32,8 +34,7 @@ function handleSubmit(e) {
     Algemene voorwaarden: ${agreeTerms}
     
     `);
-    console.log(`Fruitmand bestelling - aardbeiden: ${strawberries}, bananen: ${bananas}, appels: ${apples}, kiwi's: ${kiwis}`);
-}
+   }
 
 return (
 
@@ -44,7 +45,7 @@ return (
             <h1>Event organizer</h1>
         <form onSubmit={handleSubmit}>
         <section>
-            <label htmlFor="firstname-field">Voornaam</label>
+            <label htmlFor="firstname-field">Firstname</label>
             <input
                 name="firstname"
                 id="firstname-field"
@@ -54,7 +55,7 @@ return (
             />
         </section>
         <section>
-            <label htmlFor="lastname-field">Achternaam</label>
+            <label htmlFor="lastname-field">Lastname</label>
             <input
                 name="lastname"
                 id="lastname-field"
@@ -64,9 +65,37 @@ return (
 
             />
         </section>
+            <section>
+                <label htmlFor="email-field">Email Adress</label>
+                <input
+                    name="email-field"
+                    id="email-field"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </section>
+
+
+
+{/*//************************************************************/}
+
 
         <section>
              <h1>Event information</h1>
+
+            <section>
+                <label htmlFor="eventName-field">Event Name</label>
+                <input
+                    name="eventname"
+                    id="eventname-field"
+                    type="text"
+                    value={eventName}
+                    onChange={(e) => setEventName(e.target.value)}
+
+                />
+            </section>
+
             <label htmlFor="attendees-field">Expected attendees</label>
             <input
                 name="attendees"
@@ -76,6 +105,23 @@ return (
                 onChange={(e) => setAttendees(e.target.value)}
             />
         </section>
+
+            <section>
+                <label htmlFor="location-field">Event Adress</label>
+                <input
+                    name="location"
+                    id="location-field"
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+
+                />
+            </section>
+
+
+
+
+
         <section>
             <label htmlFor="zipcode-field">Postcode</label>
             <input
@@ -86,62 +132,24 @@ return (
                 onChange={(e) => setZipcode(e.target.value)}
             />
         </section>
-        {/*<section>*/}
-        {/*    <label htmlFor="delivery-field">Bezorgfrequentie</label>*/}
-        {/*</section>*/}
-        {/*<section>*/}
-        {/*    <select*/}
-        {/*        name="delivery"*/}
-        {/*        id="delivery-field"*/}
-        {/*        value={deliveryFrequency}*/}
-        {/*        onChange={(e) => toggleDeliveryFrequency(e.target.value)}*/}
-        {/*    >*/}
-        {/*        <option value="week">Iedere week</option>*/}
-        {/*        <option value="two-week">Om de week</option>*/}
-        {/*        <option value="month">Iedere maand</option>*/}
-        {/*    </select>*/}
-        {/*</section>*/}
-        {/*<section>*/}
-        {/*    <input*/}
-        {/*        type="radio"*/}
-        {/*        value="daytime"*/}
-        {/*        name="timeslot"*/}
-        {/*        id="timeslot-field-daytime"*/}
-        {/*        checked={deliveryTimeslot === 'daytime'}*/}
-        {/*        onChange={(e) => toggleDeliveryTimeslot(e.target.value)}*/}
-        {/*    />*/}
-        {/*    <label htmlFor="timeslot-field-daytime">Overdag</label>*/}
-        {/*    <input*/}
-        {/*        type="radio"*/}
-        {/*        value="evening"*/}
-        {/*        checked={deliveryTimeslot === 'evening'}*/}
-        {/*        onChange={(e) => toggleDeliveryTimeslot(e.target.value)}*/}
-        {/*        name="timeslot"*/}
-        {/*        id="timeslot-field-evening"*/}
-        {/*    />*/}
-        {/*    <label htmlFor="timeslot-field-evening">'s Avonds</label>*/}
-        {/*</section>*/}
+
+
+
         <section>
-            <label htmlFor="remark-field">Comments</label>
+            <label htmlFor="remark-field">Event description</label>
             <textarea
                 name="remark"
                 id="remark-field"
                 value={remark}
                 onChange={(e) => setRemark(e.target.value)}
-                rows={36}
-                cols={60}
+                rows={20}
+                cols={40}
+                placeholder={"Describe the event so much as possible, " +
+                    "including the  target audience, dresscode and policy.."}
+
             />
         </section>
-        <section>
-            <input
-                type="checkbox"
-                name="agree"
-                id="agree-field"
-                value={agreeTerms}
-                onChange={(e) => toggleAgreeTerms(e.target.checked)}
-            />
-            <label htmlFor="agree-field">I agree with requirements</label>
-        </section>
+
         <button type="submit">Send</button>
     </form>
             </div>
