@@ -1,4 +1,4 @@
-.outer-searchbar-container {
+outer-searchbar-container {
     display: flex;
     font-family: sans-serif;
     text-align: center;
@@ -6,9 +6,8 @@
     font-size: 16px;
     flex-direction: column;
     align-content: space-between;
-
-
 }
+
 .inner-searchbar-container {
     display: flex;
     color: #ff3e92;
@@ -86,3 +85,27 @@
     color: #ff3e92;
     margin: 0 auto 15px;
 }
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 550px;
+
+}
+
+.button-container .left-btn {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin-right: auto;
+
+
+}
+.button-container .right-btn {
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    margin-right: auto;
+
+}
+

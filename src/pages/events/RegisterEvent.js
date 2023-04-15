@@ -1,70 +1,93 @@
-import React, { useState } from 'react';
-import "./RegisterEvent.css"
+import React, { useEffect, useState } from 'react';
+import './RegisterEvent.css';
+
 function RegisterEvent() {
-
-    //Event information:
-
-
-    const [attendees, setAttendees] = useState(0);
-    const [location, setLocation] = useState('');
-    const [zipcode, setZipcode] = useState('');
-    const [email, setEmail] = useState('');
-    const [eventName, setEventName] = useState('');
-    const [remark, setRemark] = useState('');
-    const [agreeTerms, toggleAgreeTerms] = useState(false);
-
-
-
     // Organization owner:
-
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
 
+    // Event information:
+    const [attendees, setAttendees] = useState('');
+    const [location, setLocation] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [email, setEmail] = useState('');
+    const [eventName, setEventName] = useState('');
+    const [remark, setRemark] = useState('');
 
-function handleSubmit(e) {
+    useEffect(() => {
+        localStorage.setItem('firstname', firstname);
+        localStorage.setItem('lastname', lastname);
+        localStorage.setItem('attendees', attendees);
+        localStorage.setItem('location', location);
+        localStorage.setItem('zipcode', zipCode);
+        localStorage.setItem('email', email);
+        localStorage.setItem('eventname', eventName);
+        localStorage.setItem('Remark', remark);
+    }, [firstname, lastname, attendees, location, zipCode, email, eventName, remark]);
 
-    e.preventDefault();
-    console.log(`
-    Voornaam: ${firstname}, 
-    Achternaam: ${lastname}, 
-   // Leeftijd: ${age}, 
-    Postcode: ${zipcode}, 
-    // Bezorgfrequentie: ${deliveryFrequency},
-    Opmerkingen: ${remark},
-    Algemene voorwaarden: ${agreeTerms}
-    
+    useEffect(() => {
+        const storedFirstname = localStorage.getItem('firstname');
+        const storedLastname = localStorage.getItem('lastname');
+        const storedAttendees = localStorage.getItem('attendees');
+        const storedLocation = localStorage.getItem('location');
+        const storedZipcode = localStorage.getItem('zipcode');
+        const storedEmail = localStorage.getItem('email');
+        const storedEventname = localStorage.getItem('eventname');
+        const storedRemark = localStorage.getItem('Remark');
+
+        if (storedFirstname) setFirstname(storedFirstname);
+        if (storedLastname) setLastname(storedLastname);
+        if (storedAttendees) setAttendees(storedAttendees);
+        if (storedLocation) setLocation(storedLocation);
+        if (storedZipcode) setZipCode(storedZipcode);
+        if (storedEmail) setEmail(storedEmail);
+        if (storedEventname) setEventName(storedEventname);
+        if (storedRemark) setRemark(storedRemark);
+    }, []);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(`
+      firstname: ${firstname}
+      lastname: ${lastname},
+      attendees: ${attendees},
+      location: ${location},
+      postcode: ${zipCode},
+      remarks: ${remark},
+      email: ${email}
+      eventname:${eventName}
     `);
-   }
+    }
 
-return (
+
+    return (
 
 <>
-    <section id="registerEvent" className="outer-registerEvent-container">
-        <div className="inner-registerEvent-container">
-            <p>Welcome to the event registration page.</p>
-            <h1>Event organizer</h1>
-        <form onSubmit={handleSubmit}>
-        <section>
-            <label htmlFor="firstname-field">Firstname</label>
-            <input
-                name="firstname"
-                id="firstname-field"
-                type="text"
-                value={firstname}
-                onChange={(e) => setFirstname(e.target.value)}
-            />
-        </section>
-        <section>
-            <label htmlFor="lastname-field">Lastname</label>
-            <input
-                name="lastname"
-                id="lastname-field"
-                type="text"
-                value={lastname}
-                onChange={(e) => setLastname(e.target.value)}
-
-            />
-        </section>
+<section id="registerEvent" className="outer-registerEvent-container">
+    <div className="inner-registerEvent-container">
+        <p>Welcome to the event registration page.</p>
+        <h1>Event organizer</h1>
+        <form id="registerForm" className="RegisterForm" onSubmit={handleSubmit}>
+            <section>
+                <label htmlFor="firstname-field">Firstname</label>
+                <input
+                    name="firstname"
+                    id="firstname-field"
+                    type="text"
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
+                />
+            </section>
+            <section>
+                <label htmlFor="lastname-field">Lastname</label>
+                <input
+                    name="lastname"
+                    id="lastname-field"
+                    type="text"
+                    value={lastname}
+                    onChange={(e) => setLastname(e.target.value)}
+                />
+            </section>
             <section>
                 <label htmlFor="email-field">Email Adress</label>
                 <input
@@ -76,12 +99,7 @@ return (
                 />
             </section>
 
-
-
-{/*//************************************************************/}
-
-
-        <section>
+            <section>
              <h1>Event information</h1>
 
             <section>
@@ -107,7 +125,7 @@ return (
         </section>
 
             <section>
-                <label htmlFor="location-field">Event Adress</label>
+                <label htmlFor="location-field">Event location/Address</label>
                 <input
                     name="location"
                     id="location-field"
@@ -118,22 +136,16 @@ return (
                 />
             </section>
 
-
-
-
-
         <section>
-            <label htmlFor="zipcode-field">Postcode</label>
+            <label htmlFor="zipcode-field">Zip/code</label>
             <input
                 name="zipcode"
                 id="zipcode-field"
                 type="text"
-                value={zipcode}
-                onChange={(e) => setZipcode(e.target.value)}
+                value={zipCode}
+                onChange={(e) => setZipCode(e.target.value)}
             />
         </section>
-
-
 
         <section>
             <label htmlFor="remark-field">Event description</label>
@@ -150,7 +162,7 @@ return (
             />
         </section>
 
-        <button type="submit">Send</button>
+            <button onClick={handleSubmit}>Register</button>
     </form>
             </div>
     </section>

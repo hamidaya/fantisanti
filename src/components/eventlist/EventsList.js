@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import "./EventsList.css"
-import { Children } from 'react';
 
-//Doe een aparte call naar de events die populair zijn. Dit zijn festivals met meer dan 10.000 bezoekers.
-const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
 
-//Maak een functie aan die eventlijst uit de endpoint terug geeft en sla deze op in de data object op.
-const EventsList = () => {
+const apiKey = '4H5wT0s-2MfmRIH3Umki9KbT7hj4BBg0a-IXpkOL';
+
+const EventsList = ({addFavorite}) => {
 
     const [events, setEvents] = useState([])
 
@@ -40,29 +38,37 @@ const EventsList = () => {
         console.log(fetchEvents())
     },[])
 
-    //render uitgefilterde data terug in op een pagina. Ook hier worden de split van de slash en de UTC datum verwijderd.
     return (
         <section>
             <div>
-                {events && events.map((event) => {
-                    return(
-                    <section id="popular-events" className="outer-popular-events-container">
-                        <div className="inner-popular-events-container">
-                            <h2>{event.title}</h2>
-                            <p>{event.description}</p>
-                            <p>{event.timezone.split('/')[1]}</p>
-                            <p>{event.start.split('T')[0]}</p>
-                            <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
-                            <p>{event.entities[0] ? event.entities[0].description : ""}</p>
-                        </div>
-                    </section>
-
-
-                    )})}
+                {events &&
+                    events.map((event) => {
+                        return (
+                            <section
+                                id="popular-events"
+                                className="outer-popular-events-container"
+                            >
+                                <div className="inner-popular-events-container">
+                                    <h2>{event.title}</h2>
+                                    <p>{event.description}</p>
+                                    <p>{event.timezone.split("/")[1]}</p>
+                                    <p>{event.start.split("T")[0]}</p>
+                                    <p>
+                                        {event.entities[0] ? event.entities[0].formatted_address : ""}
+                                    </p>
+                                    <p>
+                                        {event.entities[0] ? event.entities[0].description : ""}
+                                    </p>
+                                    <button onClick={() => addFavorite(event)}>Add to Favorites</button>
+                                    </div>
+                            </section>
+                        );
+                    })}
             </div>
-        </section>);
-
+        </section>
+    );
 };
+
 
 export default EventsList;
 

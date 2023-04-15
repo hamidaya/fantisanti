@@ -26,7 +26,7 @@ function Navigation({icon, title, setStyleState}) {
                             type="button"
                             onClick={logout}
                         >
-                            Log uit
+                            Sign Out
                         </button>
                         :
                         <>

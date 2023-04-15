@@ -5,18 +5,36 @@ import {api, getEvents} from "../../api/axios";
 import axios from "axios";
 import {unmountComponentAtNode} from "react-dom";
 import React, {useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
 
-const apiKey = 'iN0CXdYCb_xPw1woOtk7CSUI2l8cKjF5X_zYmOoO';
-const SearchBar = ({events, setSearchResults}) => {
+const apiKey = '4H5wT0s-2MfmRIH3Umki9KbT7hj4BBg0a-IXpkOL';
+
+const SearchBar = ({events, setSearchResults, addFavorite}) => {
+
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
     const [countryId, setCountryId] = useState("")
     const [event, setEvent] = useState("")
     const [date, setDate] = useState("")
-    const [adress, setAdress] = useState("")
+    const [address, setAddress] = useState("")
     const [location, setLocation] = useState("")
     const [state, setState] = useState("")
-    const [test, setTest] = useState([])
-    // const handleSubmit = (e) => e.preventDefault()
+    const [fetch, setFetch] = useState([])
+
+    const handleAddFavorite = (eventObj) => {
+        // Check if the event is already in the favorites list
+        const index = favorites.findIndex((fav) => fav.id === eventObj.id);
+        if (index >= 0) {
+            // If the item already exists, don't add it again
+            return;
+        }
+
+        // Add the favorite item to the favorites list
+        favorites.push(eventObj);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+
+
+
     const handleSubmit = async (e) => {
 
         e.preventDefault()
@@ -40,14 +58,15 @@ const SearchBar = ({events, setSearchResults}) => {
         const getEvents = async () => {
 
             try {
-                const response = await axios.get(`https://api.predicthq.com/v1/events/?limit=550&sort=start&place.scope=${countryId}&active.gte=2023-03-22&active.lte=2029-12-31&category=festivals`, {
+                const response = await axios.get(`https://api.predicthq.com/v1/events/?limit=550&sort=start&place.scope=${countryId}&N&category=festivals`, {
                     headers: {
-                        "Content-Type": "application/json", Authorization: `Bearer ${apiKey}`,
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${apiKey}`,
 
                     },
                 })
                 console.log("event", response.data)
-                setTest(response.data.results)
+                setFetch(response.data.results)
                 setEvent(response.data.results[0].title)
                 setDate(response.data.results[0].start.split("T")[0])
                 setAdress(response.data.results[0].entities[0])
@@ -82,42 +101,60 @@ const SearchBar = ({events, setSearchResults}) => {
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                     </button>
 
-                    {test &&
-                        test.map((hoi) => {
-                            console.log('test', test)
+                    {fetch && fetch
+                        .filter((event) => {
+
+                            const searchTerm = event.title.toLowerCase();
+                            const formattedAddress = event.entities[0]?.formatted_address?.toLowerCase() ?? "";
+                            return searchTerm.includes(state.toLowerCase()) || formattedAddress.includes(state.toLowerCase());
+                        })
+                        .map((event) => {
+
                             return (
                                 <>
                                     <section id="search-events" className="outer-events-container">
                                         <div className="inner-events-container">
-                                            <h2>{hoi.title}</h2>
-                                            <p>{hoi.start.split("T")[0]}</p> - <p>{hoi.end.split("T")[0]}</p>
-                                            <p>{hoi.entities[0] ? hoi.entities[0].formatted_address : ""}</p>
-                                            <p>{hoi.entities[0] ? hoi.entities[0].description : ""}</p>
-                                            {/*    <>*/}
-                                            {/*<p>{hoi.entities[0].formatted_address}</p>*/}
-                                            {/*<p>{hoi.entities[0].name}</p>*/}
-                                            {/*    </>*/}
-                                            {/*}*/}
+                                            <h2>{event.title}</h2>
+                                            <p>{event.start.split("T")[0]}</p> - <p>{event.end.split("T")[0]}</p>
+                                            <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
+                                            <p>{event.entities[0] ? event.entities[0].description : ""}</p>
+                                            <div className="button-container">
+                                                <button className="left-btn"
+                                                        type="button"
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            const description = event.entities[0] ? event.entities[0].description : "";
+                                                            if (description) {
+                                                                // Open a new window with the description text
+                                                                window.open("", "event-description-window", "width=500,height=400");
+                                                                const descriptionWindow = window.open("", "event-description-window");
+                                                                descriptionWindow.document.write(description);
+                                                                descriptionWindow.focus();
+                                                            }
+                                                        }}
+                                                >More info</button>
 
 
-                                        </div>
-                                    </section>
-                                        </>
-                                        )
-                                        })}
+                                                    <div className="event-description" style={{display: 'none'}}>
+                                                        {/* The description will be inserted here dynamically */}
+                                                    </div>
+                                                    <button className="right-btn"
+                                                            type="button"
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                window.location.href='http://example.nl/tickets';
+                                                            }}
+                                                    > Tickets</button>
 
+                                                    <button onClick={() => handleAddFavorite(myEvent)}>Add to Favorites</button>
 
+                                                </div>
+                                            </div>
+                                        </section>
 
-
-            {/*<section id="search-events" className="outer-searchbar-container-container">*/}
-            {/*    <div className="inner-search-events-container">*/}
-            {/*        <h1>{event}</h1>*/}
-            {/*        <p>{date}</p>*/}
-            {/*        <p>{adress}</p>*/}
-            {/*        <p>{location}</p>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-
+                                    </>
+                                            )
+                                            })}
 
         </div>
 </form>
