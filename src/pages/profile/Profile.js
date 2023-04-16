@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import EventsList from "../../components/eventlist/EventsList";
+import "./Profile.css"
 function Profile() {
 
     const { user } = useContext(AuthContext);
@@ -31,26 +32,30 @@ function Profile() {
 
 
         <>
-            <h1>Profielpagina</h1>
-            <section>
-                <h2>Gegevens</h2>
+            <h1>My Profile page</h1>
+            <section id="profile" className="outer-profile-container">
+                <div className="inner-profile-container">
+                <h2>My account information</h2>
                 <p>
-                    <strong>Gebruikersnaam:</strong> {user.username}
+                    <strong>Username:</strong> {user.username}
                 </p>
                 <p>
                     <strong>Email:</strong> {user.email}
                 </p>
+                    </div>
             </section>
 
             {/* Render the user's favorites */}
             {favorites.length > 0 && (
-                <section>
+                <section id="my-events" className="outer-my-events-container">
+                    <div className="inner-my-events-container">
+                        <h2>My Events</h2>
                      <ul>
                         {favorites.map((favorite) => (
                         <li key={favorite.id}>{favorite.title} | {favorite.start.split("T")[0]} - {favorite.end.split("T")[0]}</li>
-
                             ))}
                     </ul>
+                    </div>
                 </section>
             )}
 

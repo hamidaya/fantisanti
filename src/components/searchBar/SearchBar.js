@@ -8,7 +8,7 @@ import React, {useEffect, useState} from "react";
 
 const apiKey = '4H5wT0s-2MfmRIH3Umki9KbT7hj4BBg0a-IXpkOL';
 
-const SearchBar = ({events, setSearchResults, addFavorite}) => {
+const SearchBar = () => {
 
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
