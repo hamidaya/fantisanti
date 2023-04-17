@@ -51,8 +51,8 @@ function App() {
                         <SignUp />
                     </Route>
                     <Route path="/RegisterEvent">
-                        <RegisterEvent />
-                    </Route>
+                        {isAuth ? <RegisterEvent /> : <Redirect to="/signin" />}
+                        </Route>
                     <Route path="/signin">
                     {isAuth ? <Profile /> : <Redirect to="/signin" /> }
                     </Route>

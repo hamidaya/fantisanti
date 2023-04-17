@@ -1,7 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './RegisterEvent.css';
+import { AuthContext } from './.././../context/AuthContext';
+import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 function RegisterEvent() {
+
+    const { isAuth, user } = useContext(AuthContext);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!isAuth) {
+            history.push('/SignIn/');
+        }
+    }, [isAuth, history]);
+
+    const [registeredEvents, setRegisteredEvents] = useState([]);
+
     // Organization owner:
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
@@ -14,6 +29,8 @@ function RegisterEvent() {
     const [email, setEmail] = useState('');
     const [eventName, setEventName] = useState('');
     const [remark, setRemark] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     useEffect(() => {
         localStorage.setItem('firstname', firstname);
@@ -24,8 +41,10 @@ function RegisterEvent() {
         localStorage.setItem('city', city);
         localStorage.setItem('email', email);
         localStorage.setItem('eventname', eventName);
-        localStorage.setItem('Remark', remark);
-    }, [firstname, lastname, attendees, location, zipCode, city, email, eventName, remark]);
+        localStorage.setItem('remark', remark);
+        localStorage.setItem('startDate', startDate);
+        localStorage.setItem('endDate', endDate);
+    }, [firstname, lastname, attendees, location, zipCode, city, email, eventName, remark, startDate, endDate]);
 
     useEffect(() => {
         const storedFirstname = localStorage.getItem('firstname');
@@ -36,7 +55,9 @@ function RegisterEvent() {
         const storedCity = localStorage.getItem('city')
         const storedEmail = localStorage.getItem('email');
         const storedEventname = localStorage.getItem('eventname');
-        const storedRemark = localStorage.getItem('Remark');
+        const storedRemark = localStorage.getItem('remark');
+        const storedStartDate = localStorage.getItem('startDate');
+        const storedEndDate = localStorage.getItem('endDate');
 
         if (storedFirstname) setFirstname(storedFirstname);
         if (storedLastname) setLastname(storedLastname);
@@ -47,24 +68,30 @@ function RegisterEvent() {
         if (storedEmail) setEmail(storedEmail);
         if (storedEventname) setEventName(storedEventname);
         if (storedRemark) setRemark(storedRemark);
+        if (storedStartDate) setStartDate(storedStartDate);
+        if (storedEndDate) setEndDate(storedEndDate);
 
     }, []);
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(`
-      firstname: ${firstname}
-      lastname: ${lastname},
-      attendees: ${attendees},
-      location: ${location},
-      postcode: ${zipCode},
-      city: ${city},
-      remarks: ${remark},
-      email: ${email}
-      eventname:${eventName}
-    `);
+        const event = {
+            firstname,
+            lastname,
+            attendees,
+            location,
+            zipcode: zipCode,
+            city,
+            remarks: remark,
+            email,
+            eventname: eventName,
+            startDate,
+            endDate
+        };
+        setRegisteredEvents([...registeredEvents, event]);
+        localStorage.setItem('registeredEvents', JSON.stringify([...registeredEvents, event]));
+        console.log('Event registered successfully!');
     }
-
 
     return (
 
@@ -121,13 +148,14 @@ function RegisterEvent() {
             </section>
 
             <label htmlFor="attendees-field">Expected attendees</label>
-            <input
-                name="attendees"
-                id="attendees-field"
-                type="number"
-                value={attendees}
-                onChange={(e) => setAttendees(e.target.value)}
-            />
+                <input
+                    type="number"
+                    name="expectedAttendees"
+                    id="expected-attendees-field"
+                    value={attendees}
+                    onChange={(e) => setAttendees(Math.max(0, parseInt(e.target.value)))}
+                    min="0"
+                />
         </section>
 
             <section>
@@ -140,6 +168,29 @@ function RegisterEvent() {
                     onChange={(e) => setLocation(e.target.value)}
 
                 />
+
+            </section>
+            <section>
+                <div>
+                    <label htmlFor="startDate">Start Date:("") </label>
+                    <input
+                        name="startDate"
+                        id="startDate"
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        style={{ display: "inline-block", marginRight: "10px" }}
+                    />
+                    <label htmlFor="endDate">End Date:</label>
+                    <input
+                        name="endDate"
+                        id="endDate"
+                        type="date"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        style={{ display: "inline-block" }}
+                    />
+                </div>
             </section>
 
         <section>

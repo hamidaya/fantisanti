@@ -30,6 +30,7 @@ function AuthContextProvider({ children }) {
                 status: 'done',
             });
         }
+
     }, []);
 
     function login(JWT) {
@@ -51,7 +52,7 @@ function AuthContextProvider({ children }) {
             status: 'done',
         });
 
-        console.log('Gebruiker is uitgelogd!');
+        console.log('user is logged out!');
         history.push('/');
     }
 

@@ -1,74 +1,77 @@
 import React, {useContext, useState,} from 'react';
 import './SignIn.css';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
-import axios from 'axios';
+import "./SignIn.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 function SignIn() {
-
-    const [user, setUser] = useState("");
-    const [ password, setPassword ] = useState("");
-    const [error,toggleError] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(false);
     const { login } = useContext(AuthContext);
 
     async function handleSubmit(e) {
         e.preventDefault();
-        toggleError(false);
+        setError(false);
 
         try {
-           const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
-                username: user,
-                password: password,
-            });
+            const response = await axios.post(
+                "https://frontend-educational-backend.herokuapp.com/api/auth/signin",
+                {
+                    username: username,
+                    password: password,
+                }
+            );
 
-            // log het resultaat in de console
-            console.log(result.data);
-
-            // geef de JWT token aan de login-functie van de context mee
-            login(result.data.accessToken);
-
-        } catch(e) {
-            console.error(e);
-            toggleError(true);
+            console.log(response.data);
+            login(response.data.accessToken);
+        } catch (error) {
+            console.error(error);
+            setError(true);
         }
     }
-    return (
 
+    return (
         <>
             <section id="login" className="outer-login-container">
                 <div className="inner-login-container">
-            <h1>Login</h1>
-            <p>Welcome to the login page.</p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="user-field">
-                    Username
-                    <input
-                        type="text"
-                        id="user-field"
-                        name="user"
-                        value={user}
-                        onChange={(e) => setUser(e.target.value)}
-                    />
-                </label>
-                <label htmlFor="password-field">
-                    Password
-                    <input
-                        type="password"
-                        id="password-field"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
-                 <button
-                    type="submit"
-                    className="form-button"
-                 >    Login
-                </button>
-                <p>Don't Have an Account?<Link to="/SignUp"> Register </Link> first here..</p>
-            </form>
-                    </div>
-        </section>
+                    <h1>Login</h1>
+                    <p>Welcome to the login page.</p>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="username-field">
+                            Username
+                            <input
+                                type="text"
+                                id="username-field"
+                                name="username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </label>
+                        <label htmlFor="password-field">
+                            Password
+                            <input
+                                type="password"
+                                id="password-field"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
+                        <button type="submit" className="form-button">
+                            Login
+                        </button>
+                        <p>
+                            Don't have an account?{" "}
+                            <Link to="/SignUp">Register</Link> first here.
+                        </p>
+                        {error && (
+                            <p className="error-message">Invalid username or password</p>
+                        )}
+                    </form>
+                </div>
+            </section>
         </>
     );
 }
