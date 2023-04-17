@@ -100,7 +100,7 @@ function Profile() {
                             </tbody>
                         </table>
                     ) : (
-                        <p>You have not registered for any events yet.</p>
+                        <p>You have not registered any events yet.</p>
                     )}
                 </div>
                 <h2>

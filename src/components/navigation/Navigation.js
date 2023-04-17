@@ -21,6 +21,7 @@ function Navigation({icon, title, setStyleState}) {
                    <li><NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive}) => isActive ? 'active-link' : 'default-home'}>Home</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body')} to="/listevents" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Popular events</NavLink></li>
                    <li><NavLink onClick={() => setStyleState('body')} to="/registerevent" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Register event</NavLink></li>
+
                     {isAuth ?
                         <button
                             type="button"
@@ -31,8 +32,7 @@ function Navigation({icon, title, setStyleState}) {
                         :
                         <>
                    <li><NavLink onClick={() => setStyleState('body')} to="/signin" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Login</NavLink></li>
-                   {/*<li><NavLink onClick={() => setStyleState('body')} to="/signout" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Loguit</NavLink></li>*/}
-                        </> }
+                  </> }
                 </ul>
             </div>
         </nav>
