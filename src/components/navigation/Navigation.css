@@ -29,6 +29,12 @@
     flex-basis: 800px;
 
 }
+.dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    order: 1;
+}
 
 
 .default-home {

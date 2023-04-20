@@ -21,14 +21,14 @@ const SearchBar = () => {
     const [fetch, setFetch] = useState([])
 
     const handleAddFavorite = (eventObj) => {
-        // Check if the event is already in the favorites list
+// Check if the event is already in the favorites list
         const index = favorites.findIndex((fav) => fav.id === eventObj.id);
         if (index >= 0) {
-            // If the item already exists, don't add it again
+// If the item already exists, don't add it again
             return;
         }
 
-        // Add the favorite item to the favorites list
+// Add the favorite item to the favorites list
         favorites.push(eventObj);
         localStorage.setItem("favorites", JSON.stringify(favorites));
     };
@@ -125,7 +125,7 @@ const SearchBar = () => {
                                                             e.preventDefault();
                                                             const description = event.entities[0] ? event.entities[0].description : "";
                                                             if (description) {
-                                                                // Open a new window with the description text
+// Open a new window with the description text
                                                                 window.open("", "event-description-window", "width=500,height=400");
                                                                 const descriptionWindow = window.open("", "event-description-window");
                                                                 descriptionWindow.document.write(description);
@@ -133,33 +133,28 @@ const SearchBar = () => {
                                                             }
                                                         }}
                                                 >More info</button>
+                                                <button className="right-btn"
+                                                        type="button"
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            window.location.href='http://example.nl/tickets';
+                                                        }}
+                                                > Tickets</button>
 
+                                                <button onClick={() => handleAddFavorite(event)}>Add to Favorites</button>
 
-                                                    <div className="event-description" style={{display: 'none'}}>
-                                                        {/* The description will be inserted here dynamically */}
-                                                    </div>
-                                                    <button className="right-btn"
-                                                            type="button"
-                                                            onClick={(e) => {
-                                                                e.preventDefault();
-                                                                window.location.href='http://example.nl/tickets';
-                                                            }}
-                                                    > Tickets</button>
-
-                                                    <button onClick={() => handleAddFavorite(myEvent)}>Add to Favorites</button>
-
-                                                </div>
                                             </div>
-                                        </section>
+                                        </div>
+                                    </section>
 
-                                    </>
-                                            )
-                                            })}
+                                </>
+                            )
+                        })}
 
-        </div>
-</form>
-</header>
+                </div>
+            </form>
+        </header>
 
-)
+    )
 }
-    export default SearchBar
+export default SearchBar

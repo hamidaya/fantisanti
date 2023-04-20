@@ -59,7 +59,7 @@ const EventsList = ({addFavorite}) => {
                                     <p>
                                         {event.entities[0] ? event.entities[0].description : ""}
                                     </p>
-                                    <button onClick={() => addFavorite(event)}>Add to Favorites</button>
+                                    <button onClick={() => AddFavorite(event)}>Add to Favorites</button>
                                     </div>
                             </section>
                         );

@@ -68,7 +68,7 @@ function Navigation({icon, title, setStyleState}) {
                                     </li>
                                     <li>
                                         <NavLink
-                                            onClick={() => setStyleState('body')}
+                                            onClick={() => setDropdownOpen(logout)}
                                             to="/"
                                             className={({ isActive }) =>
                                                 isActive ? 'active-link' : 'default-link'
@@ -87,7 +87,7 @@ function Navigation({icon, title, setStyleState}) {
                             <li><NavLink onClick={() => setStyleState('body')}
                                          to="/signin"
                                          className={({ isActive}) =>
-                                             isActive ? 'active-link' : 'default-link'
+                                            isActive ? 'active-link' : 'default-link'
                             }
                             >
                                 Login

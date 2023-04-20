@@ -30,7 +30,7 @@ outer-searchbar-container {
 
 }
 
-.inner-searchbar-container button {
+.search__button {
     display: flex;
     color: white;
     background-color: #ff3e92;
@@ -88,24 +88,14 @@ outer-searchbar-container {
 .button-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 550px;
-
+    justify-content: space-evenly;
 }
 
-.button-container .left-btn {
-    display: flex;
-    justify-content: left;
-    flex-direction: row;
-    margin-right: auto;
-
-
+.button-container button{
+    color: white;
+    background-color: #ff3e92;
+    border-radius: 30px;
+    border: 10px solid #ff3e92;
+    padding: 11px 33px;
+    margin: 16px;
 }
-.button-container .right-btn {
-    display: flex;
-    justify-content: right;
-    flex-direction: row;
-    margin-right: auto;
-
-}
-
