@@ -46,7 +46,6 @@ function Profile() {
                     </p>
                 </div>
             </section>
-
             {favorites.length > 0 && (
                 <section id="my-profile" className="outer-profile-container">
                     <div className="inner-profile-container">

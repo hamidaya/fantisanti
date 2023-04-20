@@ -89,7 +89,8 @@ outer-searchbar-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 550px;
+    width: fit-content;
+
 
 }
 
@@ -98,6 +99,8 @@ outer-searchbar-container {
     justify-content: left;
     flex-direction: row;
     margin-right: auto;
+    width: fit-content;
+
 
 
 }
@@ -106,6 +109,7 @@ outer-searchbar-container {
     justify-content: right;
     flex-direction: row;
     margin-right: auto;
+    width: fit-content;
 
 }
 

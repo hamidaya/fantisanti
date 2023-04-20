@@ -146,6 +146,8 @@ const SearchBar = () => {
                                                             }}
                                                     > Tickets</button>
 
+
+
                                                     <button onClick={() => handleAddFavorite(myEvent)}>Add to Favorites</button>
 
                                                 </div>
