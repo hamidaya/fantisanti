@@ -14,6 +14,10 @@ import ListEvents from "./pages/events/ListEvents";
 import RegisterEvent from "./pages/events/RegisterEvent";
 
 
+function Sidbar() {
+    return null;
+}
+
 function App() {
 
     const [events, setEvents] = useState([])
@@ -39,7 +43,6 @@ function App() {
                     <Route exact path="/">
                      <Home />
                        <SearchBar data={events} setSearchResults={setSearchResults} />
-
                     </Route>
                     <Route path="/profile">
                         {isAuth ? <Profile /> : <Redirect to="/" />}
@@ -57,10 +60,12 @@ function App() {
                         <ListEvents />
                     </Route>
 
+                    <Sidbar />
                 </Switch>
 
             </div>
         </div>
+
 </>
  );
 }
