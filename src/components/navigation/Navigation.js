@@ -55,7 +55,9 @@ function Navigation({icon, title, setStyleState}) {
                                             My Account
                                         </NavLink>
                                     </li>
+                                    <div>
                                     <li>
+
                                         <NavLink
                                             onClick={() => setStyleState('body')}
                                             to="/registerevent"
@@ -76,7 +78,9 @@ function Navigation({icon, title, setStyleState}) {
                                         >
                                             log out
                                         </NavLink>
+
                                     </li>
+                                </div>
 
 
                                 </ul>
@@ -85,6 +89,8 @@ function Navigation({icon, title, setStyleState}) {
                     ) : (
                         <>
                             <li><NavLink onClick={() => setStyleState('body')}
+
+
                                          to="/signin"
                                          className={({ isActive}) =>
                                             isActive ? 'active-link' : 'default-link'

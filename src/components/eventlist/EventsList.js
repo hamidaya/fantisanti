@@ -1,42 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import "./EventsList.css"
 
+const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 
-const apiKey = '4H5wT0s-2MfmRIH3Umki9KbT7hj4BBg0a-IXpkOL';
-
-const EventsList = ({addFavorite}) => {
+const EventsList = ({ addFavorite }) => {
 
     const [events, setEvents] = useState([])
 
     useEffect(() => {
-        async function fetchEvents()
-            {
-        const URI = ("https://api.predicthq.com/v1/events/?category=festivals&label=music%2Cfestival&limit=100&offset=100&phq_attendance=10000 ");
-        const ENDPOINT = "events"
+        async function fetchEvents() {
+            const URI = ("https://api.predicthq.com/v1/events/?category=festivals&label=music%2Cfestival&limit=100&offset=100&phq_attendance=10000 ");
+            const ENDPOINT = "events"
 
-        try {
+            try {
 
-            // haal data op die met een API.
-            const responds = await axios.get(URI + ENDPOINT, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${apiKey}`,
+                const responds = await axios.get(URI + ENDPOINT, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${apiKey}`,
+                    },
+                })
 
-                },
-            })
+                console.log(responds.data);
+                setEvents(responds.data.results)
+                console.log(responds.data.events)
 
-            console.log(responds.data);
-            setEvents(responds.data.results)
-            console.log(responds.data.events)
-
-        } catch (e) {
-            console.error(e);
+            } catch (e) {
+                console.error(e);
+            }
         }
-    }
         fetchEvents()
         console.log(fetchEvents())
-    },[])
+    }, [])
 
     return (
         <section>
@@ -59,8 +55,8 @@ const EventsList = ({addFavorite}) => {
                                     <p>
                                         {event.entities[0] ? event.entities[0].description : ""}
                                     </p>
-                                    <button onClick={() => AddFavorite(event)}>Add to Favorites</button>
-                                    </div>
+                                    <button onClick={() => handleAddFavorite(event)}>Add to Favorites</button>
+                                </div>
                             </section>
                         );
                     })}
@@ -69,6 +65,4 @@ const EventsList = ({addFavorite}) => {
     );
 };
 
-
 export default EventsList;
-

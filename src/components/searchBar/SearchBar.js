@@ -1,12 +1,10 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons"
 import "./SearchBar.css"
-import {api, getEvents} from "../../api/axios";
 import axios from "axios";
-import {unmountComponentAtNode} from "react-dom";
 import React, {useEffect, useState} from "react";
 
-const apiKey = '4H5wT0s-2MfmRIH3Umki9KbT7hj4BBg0a-IXpkOL';
+const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 
 const SearchBar = () => {
 
@@ -20,7 +18,7 @@ const SearchBar = () => {
     const [state, setState] = useState("")
     const [fetch, setFetch] = useState([])
 
-    const handleAddFavorite = (eventObj) => {
+const handleAddFavorite = (eventObj) => {
 // Check if the event is already in the favorites list
         const index = favorites.findIndex((fav) => fav.id === eventObj.id);
         if (index >= 0) {
@@ -140,7 +138,7 @@ const SearchBar = () => {
                                                             window.location.href='http://example.nl/tickets';
                                                         }}
                                                 > Tickets</button>
-
+                                                {/**/}
                                                 <button onClick={() => handleAddFavorite(event)}>Add to Favorites</button>
 
                                             </div>
@@ -157,4 +155,4 @@ const SearchBar = () => {
 
     )
 }
-export default SearchBar
+export default SearchBar;

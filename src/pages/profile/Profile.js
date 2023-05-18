@@ -61,7 +61,6 @@ function Profile() {
                     </div>
                 </section>
             )}
-
             <section className="outer-profile-container">
                 <div className="inner-profile-container">
                     <h2>My registered Events</h2>
