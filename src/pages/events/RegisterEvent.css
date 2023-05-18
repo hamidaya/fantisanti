@@ -80,3 +80,27 @@
 
 
 }
+#registrationComplete {
+    color: #561e86;
+    background-color: #F8F8F8;
+    flex-basis: 450px;
+    font-size: 14px;
+    padding: 50px 112px;
+    margin: 0px 0px 15px;
+}
+
+#registrationComplete button {
+    display: inline-flex;
+    width: fit-content;
+    justify-content: center;
+    padding: 5px 25px;
+    margin: 55px;
+    color: white;
+    background-color: #ff3e92;
+    border-radius: 30px;
+    border: 2px solid #ff3e92;
+    overflow: hidden;
+    position: relative;
+    font-size: 20px;
+
+}

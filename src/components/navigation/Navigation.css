@@ -29,6 +29,22 @@
     flex-basis: 800px;
 
 }
+
+.drop-menu-outer ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0px;
+}
+
+.drop-menu-outer ul li {
+    margin-bottom: 10px;
+
+}
+
+
+
 .dropdown-menu {
     display: flex;
     flex-wrap: wrap;
