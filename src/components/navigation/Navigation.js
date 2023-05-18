@@ -1,17 +1,13 @@
 import React, { useContext, useState } from 'react';
 import './Navigation.css';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import { NavLink } from 'react-router-dom';
-import Sidebar from '../sidebar/Sidebar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function Navigation({icon, title, setStyleState}) {
-
+function Navigation({ icon, title, setStyleState }) {
     const history = useHistory();
     const { isAuth, logout } = useContext(AuthContext);
-    const [showSidebar, setShowSidebar] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     return (
@@ -22,24 +18,30 @@ function Navigation({icon, title, setStyleState}) {
                     <h1>{title}</h1>
                 </header>
                 <ul className="ul-container">
-                    <li><NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive}) => isActive ? 'active-link' : 'default-home'}>Home</NavLink></li>
-                    <li><NavLink onClick={() => setStyleState('body')} to="/listevents" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Popular events</NavLink></li>
-                    <li><NavLink onClick={() => setStyleState('body')} to="/registerevent" className={({ isActive}) => isActive ? 'active-link' : 'default-link'}>Register event</NavLink></li>
+                    <li>
+                        <NavLink onClick={() => setStyleState('body')} to="/" className={({ isActive }) => (isActive ? 'active-link' : 'default-home')}>
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink onClick={() => setStyleState('body')} to="/listevents" className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}>
+                            Popular events
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink onClick={() => setStyleState('body')} to="/registerevent" className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}>
+                            Register event
+                        </NavLink>
+                    </li>
                     {isAuth ? (
-                        <>
+                        <div className="drop-menu-outer">
                             <li>
                                 <button
                                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                                    className={({ isActive }) =>
-                                        isActive ? 'active-link' : 'default-link'
-                                    }
-                                      >
+                                    className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
+                                >
                                     My Events{' '}
-                                    {dropdownOpen ? (
-                                        <FontAwesomeIcon icon={faChevronUp} />
-                                    ) : (
-                                        <FontAwesomeIcon icon={faChevronDown} />
-                                    )}
+                                    {dropdownOpen ? <FontAwesomeIcon icon={faChevronUp} /> : <FontAwesomeIcon icon={faChevronDown} />}
                                 </button>
                             </li>
                             {dropdownOpen && (
@@ -48,22 +50,16 @@ function Navigation({icon, title, setStyleState}) {
                                         <NavLink
                                             onClick={() => setStyleState('body')}
                                             to="/profile"
-                                            className={({ isActive }) =>
-                                                isActive ? 'active-link' : 'default-link'
-                                            }
+                                            className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
                                         >
-                                            My Account
+                                            My Profile
                                         </NavLink>
                                     </li>
-                                    <div>
                                     <li>
-
                                         <NavLink
                                             onClick={() => setStyleState('body')}
                                             to="/registerevent"
-                                            className={({ isActive }) =>
-                                                isActive ? 'active-link' : 'default-link'
-                                            }
+                                            className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
                                         >
                                             Add event
                                         </NavLink>
@@ -72,38 +68,29 @@ function Navigation({icon, title, setStyleState}) {
                                         <NavLink
                                             onClick={() => setDropdownOpen(logout)}
                                             to="/"
-                                            className={({ isActive }) =>
-                                                isActive ? 'active-link' : 'default-link'
-                                            }
+                                            className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
                                         >
-                                            log out
+                                            Sign Out
                                         </NavLink>
-
                                     </li>
-                                </div>
-
-
                                 </ul>
                             )}
-                        </>
+                        </div>
                     ) : (
                         <>
-                            <li><NavLink onClick={() => setStyleState('body')}
-
-
-                                         to="/signin"
-                                         className={({ isActive}) =>
-                                            isActive ? 'active-link' : 'default-link'
-                            }
-                            >
-                                Login
-                            </NavLink>
+                            <li>
+                                <NavLink
+                                    onClick={() => setStyleState('body')}
+                                    to="/signin"
+                                    className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
+                                >
+                                    Login
+                                </NavLink>
                             </li>
                         </>
                     )}
                 </ul>
             </div>
-            {showSidebar && <Sidebar />}
         </nav>
     );
 }
