@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import "./EventsList.css";
+import{handleAddFavorite} from "./../searchBar/SearchBar"
 
 const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 
@@ -47,10 +48,53 @@ const EventsList = ({ addFavorite }) => {
                                     <h2>{event.title}</h2>
                                     <p>{event.description}</p>
                                     <p>{event.timezone.split("/")[1]}</p>
-                                    <p>{event.start.split("T")[0]}</p>
+                                    <p>{event.start.split('T')[0]} − {event.end.split('T')[0]}</p>
                                     <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
                                     <p>{event.entities[0] ? event.entities[0].description : ""}</p>
-                                    {/*<button onClick={() => addFavorite(event)}>Add to Favorites</button>*/}
+                                    <div className="button-container">
+                                        <button
+                                            className="left-btn"
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                const description = event.entities[0] ? event.entities[0].description : '';
+                                                if (description) {
+                                                    window.open('', 'event-description-window', 'width=500,height=400');
+                                                    const descriptionWindow = window.open('', 'event-description-window');
+                                                    descriptionWindow.document.write(description);
+                                                    descriptionWindow.focus();
+                                                }
+                                            }}
+                                        >
+                                            More info
+
+                                        </button>
+                                        <button onClick={() => handleAddFavorite(event)}>Add to Favorites</button>
+
+                                        <button
+                                            className="right-btn"
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = 'http://voorbeeldje.nl/tickets';
+                                            }}
+                                        >
+                                            Tickets
+                                        </button>
+
+                                        <button
+                                            className="right-btn"
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = 'http://localhost:3000/registerevent';
+                                            }}
+                                        >
+                                            Register event
+                                        </button>
+
+
+                                </div>
                                 </div>
                             </section>
                         );
