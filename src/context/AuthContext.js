@@ -6,69 +6,62 @@ import jwt_decode from 'jwt-decode';
 export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
-    const [isAuth, toggleIsAuth] = useState({
+    const [isAuth, setIsAuth] = useState({
         isAuth: false,
         user: null,
         status: 'pending',
-     });
+    });
     const history = useHistory();
 
-    // MOUNTING EFFECT
     useEffect(() => {
-        // haal de JWT op uit lokale Storage
         const token = localStorage.getItem('token');
 
-        // als er WEL een token is, haal dan opnieuw de gebruikersdata op
         if (token) {
             const decoded = jwt_decode(token);
-            fetchUserData(decoded.sub, token);
+            if (decoded.exp * 1000 > Date.now()) {
+
+                fetchUserData(token, '/profile');
+            } else {
+
+                logout();
+            }
         } else {
-            // als er GEEN token is doen we niks, en zetten we de status op 'done'
-            toggleIsAuth({
+            setIsAuth({
                 isAuth: false,
                 user: null,
                 status: 'done',
             });
         }
-
     }, []);
 
     function login(JWT) {
-        // zet de token in de Local Storage
         localStorage.setItem('token', JWT);
-        // decode de token zodat we de ID van de gebruiker hebben en data kunnen ophalen voor de context
-      const decoded = jwt_decode(JWT)
-        // geef de ID, token en redirect-link mee aan de fetchUserData functie (staat hieronder)
-        fetchUserData( JWT, '/profile');
-        // link de gebruiker door naar de profielpagina
-      history.push('/profile');
+        const decoded = jwt_decode(JWT);
+        fetchUserData(JWT, '/profile');
+        history.push('/profile');
     }
 
     function logout() {
-        localStorage.clear();
-        toggleIsAuth({
+        localStorage.removeItem('token');
+        setIsAuth({
             isAuth: false,
             user: null,
             status: 'done',
         });
-
-        console.log('user is logged out!');
+        console.log('User is logged out!');
         history.push('/');
     }
 
-    // Omdat we deze functie in login- en het mounting-effect gebruiken, staat hij hier gedeclareerd!
     async function fetchUserData(token, redirectUrl) {
         try {
-            // haal gebruikersdata op met de token en id van de gebruiker
             const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
             });
 
-            // zet de gegevens in de state
-            toggleIsAuth({
+            setIsAuth({
                 ...isAuth,
                 isAuth: true,
                 user: {
@@ -79,16 +72,12 @@ function AuthContextProvider({ children }) {
                 status: 'done',
             });
 
-            // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we hiernnaartoe door
-            // als we de history.push in de login-functie zouden zetten, linken we al door voor de gebuiker is opgehaald!
             if (redirectUrl) {
                 history.push(redirectUrl);
             }
-
         } catch (e) {
             console.error(e);
-            // ging er iets mis? Plaatsen we geen data in de state
-            toggleIsAuth({
+            setIsAuth({
                 isAuth: false,
                 user: null,
                 status: 'done',

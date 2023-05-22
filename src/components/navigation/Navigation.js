@@ -58,7 +58,7 @@ function Navigation({ title, setStyleState }) {
                                                 to="/profile"
                                                 className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
                                             >
-                                                MY PROFILE
+                                                My Profile
                                             </NavLink>
                                         </li>
                                         <li>
@@ -76,7 +76,7 @@ function Navigation({ title, setStyleState }) {
                                                 to="/"
                                                 className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
                                             >
-                                                SIGN OUT
+                                                Sign Out
                                             </NavLink>
                                         </li>
                                     </ul>

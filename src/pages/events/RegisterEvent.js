@@ -18,6 +18,7 @@ function RegisterEvent() {
     const [registeredEvents, setRegisteredEvents] = useState([]);
     const [registrationComplete, setRegistrationComplete] = useState(false);
 
+
     // Organization owner:
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
@@ -92,6 +93,8 @@ function RegisterEvent() {
         setRegistrationComplete(true);
         localStorage.setItem('registeredEvents', JSON.stringify([...registeredEvents, event]));
         console.log('Event registered successfully!');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     function handleNewRegistration() {
         setFirstname('');
