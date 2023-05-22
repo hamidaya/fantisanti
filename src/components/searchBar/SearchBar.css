@@ -13,7 +13,7 @@ outer-searchbar-container {
     color: #ff3e92;
     padding: 25px 150px;
     font-size: 25px;
-    margin: 100px;
+    margin: 10px;
     flex-direction: column;
     align-items: center;
 }
@@ -54,11 +54,11 @@ outer-searchbar-container {
     align-items: center;
     align-content: center;
     width: 750px;
-    padding: 0px;
+    padding: 10px;
     border-radius: 20px;
     border: 1px solid rgba(1, 0, 0, .3);
     background-color: #faf380;
-    margin: 0 auto 15px;
+    margin: 1px auto 15px;
 }
 
 .inner-events-container h2 {
@@ -83,7 +83,7 @@ outer-searchbar-container {
     line-height: 1.25rem;
     align-items: center;
     color: #ff3e92;
-    margin: 0 auto 15px;
+    margin: 45px 20px;
 }
 .button-container {
     display: flex;

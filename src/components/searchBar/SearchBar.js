@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './SearchBar.css';
 import axios from 'axios';
+import Footer from "../footer/Footer";
 
 const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 

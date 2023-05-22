@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 function Home({styleState}) {
     return (
-        <main className={styleState}>
+            <main className={styleState}>
             <section id="home" className="outer-home-welcome-container">
               <div className="inner-home-welcome-container">
                   <h2>ONE place for all parties & festivals over the world</h2>
@@ -10,6 +10,8 @@ function Home({styleState}) {
                    </div>
               </section>
             </main>
+
+
     );
 }
 export default Home;
