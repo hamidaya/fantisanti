@@ -24,7 +24,7 @@ outer-searchbar-container {
     display: flex;
     border-radius: 30px;
     border: 2px solid #ff3e92;
-    width: 57%;
+    width: 56%;
     height: 42px;
     font-size: 25px;
     padding: 10px;
@@ -40,7 +40,7 @@ outer-searchbar-container {
     border: 10px solid #ff3e92;
     overflow: hidden;
     position: relative;
-    padding: 11px 33px 22px;
+    padding: 11px 45px 22px;
     bottom: 66px;
     left: 575px;
 
