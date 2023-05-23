@@ -6,6 +6,7 @@ outer-searchbar-container {
     font-size: 16px;
     flex-direction: column;
     align-content: space-between;
+
 }
 
 .inner-searchbar-container {
@@ -23,10 +24,11 @@ outer-searchbar-container {
     display: flex;
     border-radius: 30px;
     border: 2px solid #ff3e92;
-    width: 750px;
-    height: 35px;
+    width: 57%;
+    height: 42px;
     font-size: 25px;
     padding: 10px;
+
 
 }
 
@@ -38,9 +40,9 @@ outer-searchbar-container {
     border: 10px solid #ff3e92;
     overflow: hidden;
     position: relative;
-    padding: 11px 33px;
-    bottom: 57px;
-    left: 335px;
+    padding: 11px 33px 22px;
+    bottom: 66px;
+    left: 575px;
 
 }
 
@@ -53,12 +55,12 @@ outer-searchbar-container {
     flex-direction: column;
     align-items: center;
     align-content: center;
-    width: 750px;
+    width: 50%;
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid rgba(1, 0, 0, .3);
+    border: 1px solid rgba(10, 0, 0, 0);
     background-color: #faf380;
-    margin: 1px auto 15px;
+    margin: 0 auto 15px;
 }
 
 .inner-events-container h2 {

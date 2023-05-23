@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './RegisterEvent.css';
 import { AuthContext } from './.././../context/AuthContext';
-import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 
 
@@ -15,8 +14,10 @@ function RegisterEvent() {
         }
     }, [isAuth, history]);
 
-    const [registeredEvents, setRegisteredEvents] = useState([]);
+
     const [registrationComplete, setRegistrationComplete] = useState(false);
+    const [registeredEvents, setRegisteredEvents] = useState([]);
+
 
 
     // Organization owner:
@@ -109,6 +110,7 @@ function RegisterEvent() {
         setStartDate('');
         setEndDate('');
         setRegistrationComplete(false);
+        setRegisteredEvents([]);
     }
 
     return (
@@ -119,6 +121,15 @@ function RegisterEvent() {
                     <p>Your request will be reviewed by a moderator. It will take approximately 24 hours
                         before your event is published on our website, and will be findable in the searchbar.</p>
                     <button onClick={handleNewRegistration}>Register New Event</button>
+
+                    <h3>Registered Events:</h3>
+                    {registeredEvents.map((event, index) => (
+                        <div key={index} className="registered-event">
+                            <p>{event.eventname}</p>
+                            <p>{event.startDate} - {event.endDate}</p>
+                            {/* Display other event details here */}
+                        </div>
+                    ))}
 
                 </section>
             ) : (

@@ -3,13 +3,16 @@ import { NavLink } from 'react-router-dom';
 import "./Footer.css";
 
 function Footer() {
+
+
     return (
         <div id="footer" className="outer-footer-container">
             <div className="inner-footer-container">
                 <ul>
                     <li>
-                        <NavLink to="/contact" className="default-link">
+                        <NavLink to="/contact" className="default-link" >
                             CONTACT
+
                         </NavLink>
                     </li>
                     <li>
@@ -18,12 +21,12 @@ function Footer() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/TERMS & CONDITIONS" className="default-link">
+                        <NavLink to="/termsConditions" className="default-link">
                             TERMS & CONDITIONS
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/PRIVACY & COOKIES" className="default-link">
+                        <NavLink to="/privacyCookies" className="default-link">
                             PRIVACY & COOKIES
                         </NavLink>
                     </li>
