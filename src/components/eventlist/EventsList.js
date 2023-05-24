@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import "./EventsList.css";
+import {handleAddFavorite} from '../searchBar/SearchBar'
 
 const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 
@@ -50,7 +51,7 @@ const EventsList = ({ addFavorite }) => {
                                     <p>{event.start.split("T")[0]}</p>
                                     <p>{event.entities[0] ? event.entities[0].formatted_address : ""}</p>
                                     <p>{event.entities[0] ? event.entities[0].description : ""}</p>
-                                    {/*<button onClick={() => addFavorite(event)}>Add to Favorites</button>*/}
+                                    <button onClick={() => handleAddFavorite(event)}>Add to Favorites</button>
                                 </div>
                             </section>
                         );

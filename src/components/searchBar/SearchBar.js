@@ -132,3 +132,4 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+export function {handleAddFavorite};

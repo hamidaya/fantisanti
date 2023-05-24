@@ -14,6 +14,7 @@ import ListEvents from "./pages/events/ListEvents";
 import RegisterEvent from "./pages/events/RegisterEvent";
 
 
+
 function Sidbar() {
     return null;
 }
