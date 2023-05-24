@@ -3,27 +3,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './SearchBar.css';
 import axios from 'axios';
+import Footer from "../footer/Footer";
 
 const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
 
+const handleAddFavorite = (eventObj) => {
+
+    // Check if the event is already in the favorites list
+    const index = favorites.findIndex((fav) => fav.id === eventObj.id);
+    if (index >= 0) {
+        // If the item already exists, don't add it again
+        return;
+    }
+
+    // Add the favorite item to the favorites list
+    favorites.push(eventObj);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+};
+
+const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
 const SearchBar = () => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
     const [countryId, setCountryId] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [events, setEvents] = useState([]);
 
-    const handleAddFavorite = (eventObj) => {
-        // Check if the event is already in the favorites list
-        const index = favorites.findIndex((fav) => fav.id === eventObj.id);
-        if (index >= 0) {
-            // If the item already exists, don't add it again
-            return;
-        }
 
-        // Add the favorite item to the favorites list
-        favorites.push(eventObj);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -45,7 +51,7 @@ const SearchBar = () => {
         const getEvents = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.predicthq.com/v1/events/?limit=550&sort=start&place.scope=${countryId}&N&category=festivals`,
+                    `https://api.predicthq.com/v1/events/?limit=5550&sort=start&place.scope=${countryId}&N&category=festivals`,
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -91,7 +97,7 @@ const SearchBar = () => {
                     <section id="search-events" className="outer-events-container" key={event.id}>
                         <div className="inner-events-container">
                             <h2>{event.title}</h2>
-                            <p>{event.start.split('T')[0]}</p> - <p>{event.end.split('T')[0]}</p>
+                            <p>{event.start.split('T')[0]} − {event.end.split('T')[0]}</p>
 
                             <p>{event.entities[0] ? event.entities[0].formatted_address : ''}</p>
                             <p>{event.entities[0] ? event.entities[0].description : ''}</p>
@@ -132,4 +138,4 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-export function {handleAddFavorite};
+export {handleAddFavorite};

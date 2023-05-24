@@ -1,0 +1,27 @@
+.termsConditions {
+    color: black;
+    font-size: 13px;
+    background-color: white;
+
+
+}
+
+.termsConditions {
+    display: flex;
+
+
+}
+
+.termsConditions {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    color: #561e86;
+    background-color: #F8F8F8;
+    flex-basis: 450px;
+    font-size: 25px;
+    padding: 50px 112px;
+    margin: 0px 0px 15px;
+
+
+}

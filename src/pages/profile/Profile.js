@@ -75,14 +75,15 @@ function Profile() {
                             <tbody>
                             {registeredEvents.map((event, index) => (
                                 <tr key={index}>
-                                    <td>{event.eventname}</td>
-                                    <td>{event.start}</td>
-                                    <td>{event.end}</td>
+                                   <span><td>{event.eventname}</td></span>
+                                    <span><td>{event.startDate}</td></span>
+                                    <span><td>{event.endDate}</td></span>
+                                    <span><td>{event.city}</td></span>
                                     <td>
                                         <button
                                             onClick={() => {
                                                 const events = [...registeredEvents];
-                                                events.splice(index, 1);
+                                                events.push(index, 0);
                                                 localStorage.setItem(
                                                     'registeredEvents',
                                                     JSON.stringify(events)

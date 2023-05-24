@@ -1,4 +1,4 @@
-.outer-registerEvent-container {
+.privacyCookies {
     color: black;
     font-size: 13px;
     background-color: white;
@@ -6,13 +6,13 @@
 
 }
 
-.outer-registerEvent-container textarea {
+.privacyCookies {
     display: flex;
 
 
 }
 
-.inner-registerEvent-container {
+.privacyCookies {
     display: flex;
     align-content: center;
     flex-direction: column;

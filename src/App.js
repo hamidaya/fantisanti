@@ -12,12 +12,11 @@ import SearchBar from './components/searchBar/SearchBar'
 import ListPage from "./components/eventlist/ListPage";
 import ListEvents from "./pages/events/ListEvents";
 import RegisterEvent from "./pages/events/RegisterEvent";
+import Contact from "./pages/contact/Contact";
+import About from "./pages/about/About";
+import termsConditions from "./pages/termsConditions/TermsConditions";
+import privacyCookies from "./pages/privacyCookies/PrivacyCookies";
 
-
-
-function Sidbar() {
-    return null;
-}
 
 function App() {
 
@@ -57,12 +56,14 @@ function App() {
                     <Route path="/RegisterEvent">
                         {isAuth ? <RegisterEvent /> : <Redirect to="/signin" />}
                         </Route>
-                    <Route path="/ListEvents">
+                    <Route path="/ListEvents" >
                         <ListEvents />
                     </Route>
-
-                    <Sidbar />
-                </Switch>
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/about" component={About} />
+                    <Route path="/termsConditions" component={termsConditions} />
+                    <Route path="/privacyCookies" component={privacyCookies} />
+                    </Switch>
 
             </div>
         </div>
