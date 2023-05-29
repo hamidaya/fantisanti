@@ -51,7 +51,7 @@ const SearchBar = () => {
         const getEvents = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.predicthq.com/v1/events/?limit=5550&sort=start&place.scope=${countryId}&N&category=festivals`,
+                    `https://api.predicthq.com/v1/events/?limit=20&sort=start&place.scope=${countryId}&active.gte=2023-06-01&active.lte=2023-12-31&category=festivals`,
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const SearchBar = () => {
                     <input
                         className="search__input"
                         type="text"
-                        placeholder="Where are you going? Enter city or country name"
+                        placeholder="Where are you going? city or country"
                         id="search"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}

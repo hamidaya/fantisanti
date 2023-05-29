@@ -274,4 +274,3 @@ function RegisterEvent() {
 }
 
 export default RegisterEvent;
-
