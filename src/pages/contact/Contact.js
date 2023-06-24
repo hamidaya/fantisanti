@@ -8,9 +8,10 @@ function Contact (styleState) {
         <main className={styleState}>
             <section id="contact" className="contact">
                 <p>Contact form</p>
+
             </section>
-        </main>
-    );
+      c  </main>
+    )
 }
 
 export default Contact;

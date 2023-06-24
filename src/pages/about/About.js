@@ -8,7 +8,7 @@ function About ({styleState}) {
         <main className={styleState}>
             <section id="about" className="about">
                 <p>About page</p>
-
+                Welcome to xxxx page for all
             </section>
 
         </main>
