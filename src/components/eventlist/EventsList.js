@@ -3,7 +3,7 @@ import axios from "axios";
 import "./EventsList.css";
 import{handleAddFavorite} from "./../searchBar/SearchBar"
 
-const apiKey = 'XcDnZDvntgJYkLYVLKcT1281Zzlp4UogZw1RDuPa';
+const apiKey = 'gsGya6Il7uJPsvlH3-QFlVIl65Pl6411Fz9ZfEQh';
 
 const EventsList = ({ addFavorite }) => {
 
