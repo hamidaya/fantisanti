@@ -26,8 +26,9 @@ outer-searchbar-container {
     border: 2px solid #ff3e92;
     width: 56%;
     height: 42px;
-    font-size: 25px;
-    padding: 10px;
+    font-size: 20px;
+    padding: 12px 45px 12px;
+    position: relative;
 
 
 }
@@ -37,13 +38,12 @@ outer-searchbar-container {
     color: white;
     background-color: #ff3e92;
     border-radius: 30px;
-    border: 10px solid #ff3e92;
-    overflow: hidden;
-    position: relative;
+    border: 9px solid #ff3e92;
+    overflow: auto;
     padding: 11px 45px 22px;
-    bottom: 66px;
-    left: 575px;
-
+    bottom: 67px;
+    left: 247px;
+    position: relative;
 }
 
 .dropdown:empty {

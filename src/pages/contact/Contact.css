@@ -1,12 +1,4 @@
 .contact {
-    color: black;
-    font-size: 13px;
-    background-color: white;
-
-
-}
-
-.contact {
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -16,9 +8,17 @@
     font-size: 25px;
     padding: 50px 112px;
     margin: 0px 0px 15px;
-
-
 }
 
+.contact  input {
+    display: flex;
+    background-color: #E8F0FE;
+    height: 25px;
+    width: 250px;
+    border-radius: 20px;
+    margin: 4px 0px 4px;
+    padding: 1px 15px;
+    font-size: 16px;
 
+}
 
