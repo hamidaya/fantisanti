@@ -42,7 +42,7 @@ outer-searchbar-container {
     overflow: auto;
     padding: 11px 45px 22px;
     bottom: 67px;
-    left: 247px;
+    margin-left: 260px;
     position: relative;
 }
 
