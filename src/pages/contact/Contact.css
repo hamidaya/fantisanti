@@ -10,7 +10,7 @@
     margin: 0px 0px 15px;
 }
 
-.contact  input {
+.contact input {
     display: flex;
     background-color: #E8F0FE;
     height: 25px;
@@ -22,3 +22,18 @@
 
 }
 
+
+.contact button {
+    display: flex;
+    width: fit-content;
+    padding: 5px 25px;
+    margin: 5px;
+    color: white;
+    background-color: #ff3e92;
+    border-radius: 30px;
+    border: 2px solid #ff3e92;
+    overflow: hidden;
+    position: relative;
+    font-size: 25px;
+
+}

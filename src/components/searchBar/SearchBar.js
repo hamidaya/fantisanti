@@ -5,7 +5,7 @@ import './SearchBar.css';
 import axios from 'axios';
 import Footer from "../footer/Footer";
 
-const apiKey = 'gsGya6Il7uJPsvlH3-QFlVIl65Pl6411Fz9ZfEQh';
+const apiKey = 'dSceubhsQMm1FTRz38d-W95vKj9fK9C_emFXdPnp';
 
 const handleAddFavorite = (eventObj) => {
 
@@ -51,7 +51,7 @@ const SearchBar = () => {
         const getEvents = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.predicthq.com/v1/events/?limit=200&sort=start&place.scope=${countryId}&active.gte=2023-06-01&active.lte=2024-12-31&category=festivals`,
+                    `https://api.predicthq.com/v1/events/?limit=200&sort=start&place.scope=${countryId}&active.gte=2023-07-14&active.lte=2024-12-31&category=festivals`,
                     {
                         headers: {
                             'Content-Type': 'application/json',

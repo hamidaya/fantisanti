@@ -5,30 +5,33 @@ outer-searchbar-container {
     align-items: center;
     font-size: 16px;
     flex-direction: column;
-    align-content: space-between;
+
 
 }
 
 .inner-searchbar-container {
     display: flex;
     color: #ff3e92;
-    padding: 25px 150px;
+    padding: 40px 550px;
+    margin-right: 340px;
     font-size: 25px;
-    margin: 10px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    position: center;
 }
 
 
-.inner-searchbar-container input {
+.search__input {
     display: flex;
     border-radius: 30px;
     border: 2px solid #ff3e92;
-    width: 56%;
+    width: 79%;
     height: 42px;
     font-size: 20px;
-    padding: 12px 45px 12px;
-    position: relative;
+    padding: 12px 5px 12px;
+    justify-items: flex-start;
+    flex-direction: column;
+
 
 
 }
@@ -39,11 +42,10 @@ outer-searchbar-container {
     background-color: #ff3e92;
     border-radius: 30px;
     border: 9px solid #ff3e92;
-    overflow: auto;
     padding: 11px 45px 22px;
     bottom: 67px;
-    margin-left: 260px;
     position: relative;
+
 }
 
 .dropdown:empty {

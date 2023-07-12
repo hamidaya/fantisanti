@@ -14,8 +14,8 @@ import ListEvents from "./pages/events/ListEvents";
 import RegisterEvent from "./pages/events/RegisterEvent";
 import Contact from "./pages/contact/Contact";
 import About from "./pages/about/About";
-import termsConditions from "./pages/termsConditions/TermsConditions";
-import privacyCookies from "./pages/privacyCookies/PrivacyCookies";
+import TermsConditions from "./pages/termsConditions/TermsConditions";
+import PrivacyCookies from "./pages/privacyCookies/PrivacyCookies";
 
 
 function App() {
@@ -61,8 +61,8 @@ function App() {
                     </Route>
                     <Route path="/contact" component={Contact} />
                     <Route path="/about" component={About} />
-                    <Route path="/termsConditions" component={termsConditions} />
-                    <Route path="/privacyCookies" component={privacyCookies} />
+                    <Route path="/termsConditions" component={TermsConditions} />
+                    <Route path="/privacyCookies" component={PrivacyCookies} />
                     </Switch>
 
             </div>

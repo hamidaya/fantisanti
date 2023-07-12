@@ -6,12 +6,20 @@ function Contact (styleState) {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [remark, setRemark] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
-            return (
+
+    function handleSubmit() {
+
+    }
+
+    return (
 
         <main className={styleState}>
+            <form id="registerForm" className="RegisterForm" onSubmit={handleSubmit}>
             <section id="contact" className="contact">
-            <form>
+
                 <p>Contact form</p>
                 <label htmlFor="firstname-field">Firstname</label>
                 <input
@@ -34,18 +42,19 @@ function Contact (styleState) {
                     name="email"
                     id="email-field"
                     type="email"
-                    value={lastname}
-                    onChange={(e) => setLastname(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
-                <label htmlFor="phone-field">Firstname</label>
+                <label htmlFor="phone-field">Phone number</label>
                 <input
                     name="phone"
                     id="phone-field"
-                    type="Number"
-                    value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder={"example: +3168348334"}
                 />
-                <label htmlFor="remark-field">Event description</label>
+                <label htmlFor="remark-field">Your message</label>
                 <textarea
                     name="remark"
                     id="remark-field"
@@ -55,12 +64,12 @@ function Contact (styleState) {
                     cols={20}
                     placeholder={"enter your message here"}
                 />
-            </form>
-                <button onClick={handleSubmit}>Send</button>
+
+            <button onClick={handleSubmit}>Contact</button>
+
             </section>
-
-
-</main>
+            </form>
+                </main>
     );
 }
 
