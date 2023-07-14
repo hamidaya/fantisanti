@@ -76,7 +76,7 @@ const SearchBar = () => {
                     <input
                         className="search__input"
                         type="text"
-                        placeholder="Where are you going? city or country"
+                        placeholder="Where are you going?"
                         id="search"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
